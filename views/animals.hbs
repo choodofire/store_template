@@ -1,0 +1,24 @@
+{{> shop-navbar}}
+<div class="shop" id="shop">
+        {{#if animals.length}}
+                {{#each animals}}
+                    <div class="card-link">
+                        <a href="/shop/{{_id}}">
+                            <div>
+                                <div class="card animal">
+                                    <div class="card-image">
+                                        <img src="{{img}}" alt="{{title}}">
+                                    </div>
+                                    <div class="card-content animal-description">
+                                        <span class="card-title">{{title}}</span>
+                                        <p class="price">{{price}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/each}}
+        {{else}}
+            <p>Животных нет</p>
+        {{/if}}
+</div>

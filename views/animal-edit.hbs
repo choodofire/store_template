@@ -1,0 +1,38 @@
+<h1>Редактировать {{animal.title}}</h1>
+
+
+<form action="/shop/edit" method="post" class="course-form">
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required value="{{animal.title}}">
+        <label for="title">Название животного</label>
+        <span class="helper-text" data-error="Введите название"></span>
+    </div>
+    <div class="input-field">
+        <input id="price" name="price" type="number" class="validate" required min="1" value="{{animal.price}}">
+        <label for="price">Цена животного</label>
+        <span class="helper-text" data-error="Введите цену"></span>
+    </div>
+    <div class="input-field">
+        <input id="image" name="img" type="text" class="validate" required value="{{animal.img}}">
+        <label for="img">URL фото</label>
+        <span class="helper-text" data-error="Введите URL-картинку"></span>
+    </div>
+    <div class="input-field">
+        <textarea id="description" name="description" class="materialize-textarea">{{animal.description}}</textarea>
+        <label for="description">Введите описание</label>
+        <span class="helper-text" data-error="Введите описание"></span>
+    </div>
+
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <input type="hidden" name="id" value="{{animal._id}}">
+
+    <button type="submit" class="btn btn-primary">Редактировать животное</button>
+</form>
+
+<form action="/shop/remove" method="post">
+
+    <input type="hidden" name="id" value="{{animal._id}}">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+
+    <button class="btn red">Удалить животное</button>
+</form>

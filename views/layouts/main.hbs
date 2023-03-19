@@ -1,0 +1,21 @@
+{{> head }}
+<body>
+    {{> navbar}}
+        {{#if isMain}}
+            <div class="container wrapper home">
+                {{{ body }}}
+            </div>
+        {{else}}
+            <div class="container wrapper">
+                {{{ body }}}
+            </div>
+        {{/if}}
+    {{> footer}}
+{{#if isAuth}}
+
+{{else}}
+    {{> popup-auth}}
+{{/if}}
+    {{> scripts}}
+</body>
+</html>

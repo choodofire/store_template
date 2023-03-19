@@ -1,0 +1,27 @@
+@import "colors.scss";
+@import "shop-navbar.scss";
+
+.card-link {
+  height: 500px;
+  width: 400px;
+  .card.animal {
+    height: 500px;
+    width: 400px;
+    img {
+      max-height: 350px;
+      width: auto;
+    }
+    .animal-description {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto auto 0;
+    }
+  }
+}
+
+.card-link:hover {
+  .animal-description {
+    background: $hover;
+    transition: 0.5s;
+  }
+}

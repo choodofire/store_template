@@ -1,0 +1,76 @@
+<header>
+    <div class="header">
+        <div>
+            <nav>
+                <div class="header__nav">
+                    <div class="header__left link-underlined">
+                        <ul>
+                            {{#if isHome}}
+                                <li class="active"><a href="/">ГЛАВНАЯ</a></li>
+                            {{else}}
+                                <li><a href="/">ГЛАВНАЯ</a></li>
+                            {{/if}}
+
+                            {{#if isShop}}
+                                <li class="active"><a href="/shop">МАГАЗИН</a></li>
+                            {{else}}
+                                <li><a href="/shop">МАГАЗИН</a></li>
+                            {{/if}}
+
+                            {{#if isInfo}}
+                                <li class="active"><a href="/info">ИНФО</a></li>
+                            {{else}}
+                                <li><a href="/info">ИНФО</a></li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                    <div class="header__right link-underlined">
+                        <ul>
+                            {{#if @root.isAdmin}}
+                                {{#if isAdd}}
+                                    <li class="active"><a href="/add">Добавить животное</a></li>
+                                {{else}}
+                                    <li><a href="/add">Добавить животное</a></li>
+                                {{/if}}
+                            {{/if}}
+
+                            {{#if isAuth}}
+
+                                {{#if isProfile}}
+                                    <li class="active"><a href="/profile">Профиль</a></li>
+                                {{else}}
+                                    <li><a href="/profile">Профиль</a></li>
+                                {{/if}}
+
+                                {{#if isCart}}
+                                    <li class="active"><a href="/cart">Корзина</a></li>
+                                {{else}}
+                                    <li><a href="/cart">Корзина</a></li>
+                                {{/if}}
+
+                                {{#if isOrders}}
+                                    <li class="active"><a href="/orders">Заказы</a></li>
+                                {{else}}
+                                    <li><a href="/orders">Заказы</a></li>
+                                {{/if}}
+                                <li><a href="/auth/logout">Выйти</a></li>
+                            {{else}}
+                                {{#if isLogin}}
+                                    <li class="active popup-link"><a href="#loginPopup">ВОЙТИ</a></li>
+                                {{else}}
+                                    <li><a href="#loginPopup" class="popup-link">ВОЙТИ</a></li>
+                                {{/if}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="header__center">
+            <a href="/">
+                <img src="../../images/icons/index.png" alt="Logo">
+            </a>
+        </div>
+    </div>
+</header>
+

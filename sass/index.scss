@@ -1,0 +1,141 @@
+@import "colors.scss";
+@import "footer.scss";
+@import "navbar.scss";
+@import "home.scss";
+@import "shop.scss";
+@import "popup.scss";
+@import "button.scss";
+@import "input.scss";
+@import "profile.scss";
+
+html, body{
+  height: 100vh;
+  padding:0;
+  margin:0;
+  font-family: 'Montserrat';
+  a {
+    color: $black;
+    text-decoration: none;
+    position: relative;
+  }
+  .lock{
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.home {
+  padding: 0;
+}
+
+.link-underlined {
+  a::before {
+    content: '';
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    transition: 0.3s;
+  }
+  a:hover:before {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.active {
+  a::before {
+    content: '';
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    transition: 0.3s;
+  }
+}
+
+.animal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    margin-bottom: 2rem;
+  }
+  img {
+    max-width: 600px;
+    height: auto;
+  }
+  .price.big {
+    font-size: 2rem;
+  }
+}
+
+.shop {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card-animal-description {
+  h3 {
+    text-align: center;
+  }
+  .description {
+
+    .price.big {
+      font-size: 2rem;
+    }
+  }
+
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course-form {
+  margin-bottom: 2rem;
+}
+
+.auth {
+  padding-top: 1rem
+}
+
+.alert {
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: rgba(255, 0, 0, .3);
+  color: red;
+}
+
+.popup-list {
+  width: 100%;
+  ul {
+    padding: 0;
+    margin: 30px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    li {
+      padding: 5px;
+      display: inline-block;
+    }
+  }
+}

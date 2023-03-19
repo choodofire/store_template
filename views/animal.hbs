@@ -1,0 +1,37 @@
+<div class="row card-animal-description">
+    <h3>{{animal.title}}</h3>
+    <div class="col s12">
+        <div class="col s6">
+                <div class="animal">
+                    <img src="{{animal.img}}" alt="{{animal.title}}">
+                    {{#if @root.isAdmin}}
+                        <a href="/shop/{{animal._id}}/edit?allow=true">Редактировать</a>
+                    {{/if}}
+                </div>
+        </div>
+        <div class="col s6">
+            <div class="description">
+                <h5>Обзор</h5>
+                {{#if animal.description}}
+                    <p>
+                        {{animal.description}}
+                    </p>
+                {{else}}
+                    <p>Описание пока не добавлено</p>
+                {{/if}}
+
+
+                {{#if @root.isAuth}}
+                    <form action="/cart/add" method="POST">
+                        <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                        <input type="hidden" name="id" value="{{animal._id}}">
+                        <button type="submit" class="btn btn-primary">В корзину</button>
+                    </form>
+                {{/if}}
+                <p class="price big">{{animal.price}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,40 @@
+@import "colors.scss";
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  &__static {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  &__avatar-border {
+    max-width: 300px;
+    height: 300px;
+    border: 2px solid $black;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      max-width: 300px;
+      height: auto;
+    }
+  }
+
+  &__orders {
+    width: 600px;
+
+  }
+}

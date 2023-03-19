@@ -1,0 +1,43 @@
+<div>
+
+</div>
+<h1>Добавить животное</h1>
+{{#if error}}
+    <p class="alert">{{error}}</p>
+{{/if}}
+
+
+<form action="/add" method="post">
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="title" class="input-field__label">Название животного</label>
+            <input id="title" name="title" type="text" class="validate input-field__input" required value="{{data.title}}">
+            <span class="helper-text" data-error="Введите название"></span>
+        </div>
+    </div>
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="price" class="input-field__label">Цена животного</label>
+            <input id="price" name="price" type="number" class="validate input-field__input" required min="1" value="{{data.price}}">
+            <span class="helper-text" data-error="Введите цену"></span>
+        </div>
+    </div>
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="img" class="input-field__label">URL фото</label>
+            <input id="img" name="img" type="text" class="validate input-field__input" required value="{{data.img}}">
+            <span class="helper-text" data-error="Введите URL-картинку"></span>
+        </div>
+    </div>
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="description" class="input-field__label">Введите описание</label>
+            <textarea id="description" name="description" class=" input-field__textarea">{{data.description}}</textarea>
+            <span class="helper-text" data-error="Введите описание"></span>
+        </div>
+    </div>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button class="btn btn-primary">Добавить животное</button>
+</form>
+
+

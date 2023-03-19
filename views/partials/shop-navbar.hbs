@@ -1,0 +1,79 @@
+<div id="shop-navbar" class="shop-header">
+    <nav>
+        <div class="shop-header__nav">
+            <div class="shop-header__left link-underlined">
+                <ul>
+                    {{#if isAllProducts}}
+                        <li class="active">
+                            <button class="js-load-items"  data-id="allProducts">Все товары</button>
+                        </li>
+                    {{else}}
+                        <li>
+                            <button class="js-load-items"  data-id="allProducts">Все товары</button>
+                        </li>
+                    {{/if}}
+
+                    {{#if isSnakes}}
+                        <li class="active">
+                            <button class="js-load-items" data-id="snakes">Змеи</button>
+                        </li>
+                    {{else}}
+                        <li>
+                            <button class="js-load-items" data-id="snakes">Змеи</button>
+                        </li>
+                    {{/if}}
+
+                    {{#if isLizards}}
+                        <li class="active">
+                            <button class="js-load-items" data-id="lizards">Ящерицы</button>
+                        </li>
+                    {{else}}
+                        <li>
+                            <button class="js-load-items" data-id="lizards">Ящерицы</button>
+                        </li>
+                    {{/if}}
+
+                    {{#if isEublefar}}
+                        <li class="active">
+                            <button class="js-load-items" data-id="eublefar">Эублефары</button>
+                        </li>
+                    {{else}}
+                        <li>
+                            <button class="js-load-items" data-id="eublefar">Эублефары</button>
+                        </li>
+                    {{/if}}
+
+                    {{#if isSpider}}
+                        <li class="active">
+                            <button class="js-load-items" data-id="spider">Пауки</button>
+                        </li>
+                    {{else}}
+                        <li>
+                            <button class="js-load-items" data-id="spider">Пауки</button>
+                        </li>
+                    {{/if}}
+
+                    {{#if isAmphibian}}
+                        <li class="active">
+                            <button class="js-load-items" data-id="amphibian">Амфибии</button>
+                        </li>
+                    {{else}}
+                        <li>
+                            <button class="js-load-items" data-id="amphibian">Амфибии</button>
+                        </li>
+                    {{/if}}
+
+                    {{#if isTurtle}}
+                        <li class="active">
+                            <button class="js-load-items" data-id="turtle">Черепахи</button>
+                        </li>
+                    {{else}}
+                        <li>
+                            <button class="js-load-items" data-id="turtle">Черепахи</button>
+                        </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,26 @@
+@import "colors.scss";
+
+.footer {
+  padding: 0 50px 25px 50px;
+  position: relative;
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 12px;
+    justify-content: space-between;
+  }
+  &__contacts {
+
+  }
+  &__creation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  &__links {
+
+  }
+}
