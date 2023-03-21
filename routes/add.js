@@ -1,18 +1,18 @@
 import {Router} from 'express'
-import Animal from '../models/animal.js'
 import authMiddleware from "../middleware/auth.js";
 import checkAPIs from "express-validator"
 import validators from "../utils/validators.js";
+import Vinyl from "../models/vinyl.js";
 
 const router = Router()
 
 const {validationResult} = checkAPIs
-const animalValidators = validators.animalValidators
+const vinylValidators = validators.vinylValidators
 
 router.get('/', authMiddleware, (req, res) => {
     if (req.user.isAdmin) {
         res.status(200).render('add', {
-            title: 'Добавить животное',
+            title: 'Добавить виниловую пластинку',
             isAdd: true,
         })
     } else {
@@ -20,11 +20,11 @@ router.get('/', authMiddleware, (req, res) => {
     }
 })
 
-router.post('/', authMiddleware, animalValidators, async (req, res) => {
+router.post('/', authMiddleware, vinylValidators, async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.status(422).render('add', {
-            title: 'Добавить животное',
+            title: 'Добавить виниловую пластинку',
             isAdd: true,
             error: errors.array()[0].msg,
             data: {
@@ -35,7 +35,8 @@ router.post('/', authMiddleware, animalValidators, async (req, res) => {
             }
         })
     }
-    const animal = new Animal({
+
+    const vinyl = new Vinyl({
         title: req.body.title,
         price: req.body.price,
         img: req.body.img,
@@ -44,7 +45,7 @@ router.post('/', authMiddleware, animalValidators, async (req, res) => {
     })
 
     try {
-        await animal.save()
+        await vinyl.save()
         res.redirect('/shop')
     } catch (e) {
         res.status(500).send()

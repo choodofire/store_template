@@ -8,20 +8,23 @@
 
 
 <form action="/add" method="post">
+
     <div class="input-field">
         <div class="input-field__control">
-            <label for="title" class="input-field__label">Название животного</label>
+            <label for="title" class="input-field__label">Название пластинки</label>
             <input id="title" name="title" type="text" class="validate input-field__input" required value="{{data.title}}">
             <span class="helper-text" data-error="Введите название"></span>
         </div>
     </div>
+
     <div class="input-field">
         <div class="input-field__control">
-            <label for="price" class="input-field__label">Цена животного</label>
+            <label for="price" class="input-field__label">Цена пластинки</label>
             <input id="price" name="price" type="number" class="validate input-field__input" required min="1" value="{{data.price}}">
             <span class="helper-text" data-error="Введите цену"></span>
         </div>
     </div>
+
     <div class="input-field">
         <div class="input-field__control">
             <label for="img" class="input-field__label">URL фото</label>
@@ -29,15 +32,65 @@
             <span class="helper-text" data-error="Введите URL-картинку"></span>
         </div>
     </div>
+
     <div class="input-field">
         <div class="input-field__control">
-            <label for="description" class="input-field__label">Введите описание</label>
-            <textarea id="description" name="description" class=" input-field__textarea">{{data.description}}</textarea>
-            <span class="helper-text" data-error="Введите описание"></span>
+            <label for="format" class="input-field__label">Формат записи (LP, CD, Limited, Colour)</label>
+            <input id="format" name="format" type="text" class="validate input-field__textarea" required value="{{data.format}}">
+            <span class="helper-text" data-error="Введите формат"></span>
         </div>
     </div>
+
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="label" class="input-field__label">Лейбл</label>
+            <input id="label" name="label" type="text" class="validate input-field__input" required value="{{data.label}}">
+            <span class="helper-text" data-error="Введите лейбл"></span>
+        </div>
+    </div>
+
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="style" class="input-field__label">Жанр альбома</label>
+            <input id="style" name="style" type="text" class="validate input-field__input" required value="{{data.style}}">
+            <span class="helper-text" data-error="Введите жанр"></span>
+        </div>
+    </div>
+
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="musician" class="input-field__label">Автор альбома</label>
+            <input id="musician" name="musician" type="text" class="validate input-field__input" required value="{{data.musician}}">
+            <span class="helper-text" data-error="Введите автора альбома"></span>
+        </div>
+    </div>
+
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="release_date" class="input-field__label">Дата релиза альбома</label>
+            <input id="release_date" name="release_date" type="text" class="validate input-field__input" required value="{{data.release_date}}">
+            <span class="helper-text" data-error="Введите дату релиза"></span>
+        </div>
+    </div>
+
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="quantity" class="input-field__label">Количество в наличии</label>
+            <input id="quantity" name="quantity" type="text" class="validate input-field__input" required value="{{data.quantity}}">
+            <span class="helper-text" data-error="Введите количество"></span>
+        </div>
+    </div>
+
+    <div class="input-field">
+        <div class="input-field__control">
+            <label for="description" class="input-field__label">Введите доп описание</label>
+            <textarea id="description" name="description" class="input-field__textarea">{{data.description}}</textarea>
+            <span class="helper-text" data-error="Введите доп описание"></span>
+        </div>
+    </div>
+
     <input type="hidden" name="_csrf" value="{{csrf}}">
-    <button class="btn btn-primary">Добавить животное</button>
+    <button class="btn btn-primary">Добавить пластинку в магазин</button>
 </form>
 
 

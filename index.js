@@ -9,7 +9,7 @@ import mongoStore from 'connect-mongodb-session';
 import mongoose from "mongoose";
 import homeRoutes from './routes/home.js';
 import addRoutes from './routes/add.js';
-import animalsRoutes from './routes/animals.js';
+import recordsRoutes from './routes/vinyls.js';
 import cartRoutes from './routes/cart.js';
 import ordersRoutes from './routes/orders.js';
 import authRoutes from './routes/auth.js';
@@ -20,15 +20,19 @@ import userMiddleware from './middleware/user.js';
 import fileMiddleware from './middleware/file.js'
 import helmet from 'helmet'
 import compression from "compression"
-import keys from './keys/index.js'
 import hbsHelper from './utils/hbs-helper.js'
 import errorHandler from './middleware/error404.js'
 import sassMiddleware from "node-sass-middleware"
+import dotenv from 'dotenv'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = process.env.PORT || 3000;
+if (process.env.NODE_ENV === 'development') {
+    dotenv.config({ path: '.env.development' });
+} else {
+    dotenv.config({ path: '.env.production' });
+}
 
 const MongoStore = mongoStore(session)
 
@@ -41,7 +45,7 @@ const hbs = expressHBS.create({
 
 const store = new MongoStore({
     collection: 'sessions',
-    uri: keys.MONGODB_URI
+    uri: "mongodb+srv://vyacheslav:pgSLiNU2xaCeHIJ7@cluster0.qtqihfc.mongodb.net/shop"
 })
 
 app.engine('hbs', hbs.engine)
@@ -56,11 +60,12 @@ app.use(
     })
 )
 app.use(express.static(path.join(__dirname, 'public')))
-app.use('/images/avatars', express.static(path.join(__dirname, 'images/avatars')))
+app.use('/images/avatars', express.static(path.join(__dirname, 'images', 'avatars')))
+app.use('/images/covers', express.static(path.join(__dirname, 'images', 'covers')))
 app.use('/images/icons',express.static(path.join(__dirname, 'images', 'icons')))
 app.use(express.urlencoded({extended: true}))
 app.use(session({
-    secret: keys.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: store,
@@ -76,7 +81,7 @@ app.use(compression())
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
-app.use('/shop', animalsRoutes)
+app.use('/shop', recordsRoutes)
 app.use('/cart', cartRoutes)
 app.use('/orders', ordersRoutes)
 app.use('/auth', authRoutes)
@@ -87,12 +92,13 @@ app.use(errorHandler)
 
 async function start() {
     try {
-        await mongoose.connect(keys.MONGODB_URI, {
+        await mongoose.connect("mongodb+srv://vyacheslav:pgSLiNU2xaCeHIJ7@cluster0.qtqihfc.mongodb.net/shop", {
             useNewUrlParser: true,
             // useFindAndModify: false,
         })
-        await app.listen(PORT, () => {
-            console.log(`Server is running on PORT: ${PORT}`)
+        console.log("HELLO - ", process.env.NOVE_ENV)
+        await app.listen(process.env.PORT, () => {
+            console.log(`Server is running on PORT: ${process.env.PORT}`)
         })
     } catch (e) {
         console.log(e)

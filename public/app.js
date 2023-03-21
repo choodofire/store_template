@@ -25,8 +25,8 @@ if ($cart) {
                 }
             }).then(res => res.json())
                 .then(cart => {
-                    if (cart.animals.length) {
-                        const html = cart.animals.map(c => {
+                    if (cart.vinyls.length) {
+                        const html = cart.vinyls.map(c => {
                             return `
                             <tr>
                                 <td>${c.title}</td>

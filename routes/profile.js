@@ -17,8 +17,8 @@ router.get('/', auth, async (req, res) => {
         orders: orders.map(o => {
             return {
                 ...o,
-                price: o.animals.reduce((total, c) => {
-                    return total += c.count * c.animal.price
+                price: o.vinyls.reduce((total, c) => {
+                    return total += c.count * c.vinyl.price
                 }, 0)
             }
         })

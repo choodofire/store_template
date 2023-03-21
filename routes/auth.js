@@ -1,7 +1,6 @@
 import {Router} from 'express'
 import User from '../models/user.js'
 import bcrypt from 'bcryptjs'
-import keys from "../keys/index.js";
 import UniSender from 'unisender'
 import crypto from "crypto";
 import regEmail from '../emails/registration.js';
@@ -15,7 +14,7 @@ const {validationResult} = checkAPIs
 const registerValidators = validators.registerValidators
 
 const uniSender = new UniSender({
-    api_key: keys.MAIL_API_KEY,
+    api_key: process.env.MAIL_API_KEY,
     lang: 'ru'                // optional, 'en' by default
 });
 

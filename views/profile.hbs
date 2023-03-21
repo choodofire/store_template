@@ -43,8 +43,8 @@
                                 <span>Аватар</span>
                                 <input type="file" name="avatar">
                             </div>
-
                         </div>
+
                     </div>
 
                     <div class="profile__address">
@@ -87,9 +87,9 @@
                                 <p class="date">{{date}}</p>
                                 <p><em>{{user.name}} </em>({{user.userId.email}})</p>
                                 <ol>
-                                    {{#each animals}}
+                                    {{#each vinyls}}
                                         <li>
-                                            {{animal.title}} (x <strong>{{count}}</strong>)
+                                            {{vinyl.title}} (x <strong>{{count}}</strong>)
                                         </li>
                                     {{/each}}
                                 </ol>

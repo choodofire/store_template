@@ -1,7 +1,7 @@
 {{> shop-navbar}}
 <div class="shop" id="shop">
-        {{#if animals.length}}
-                {{#each animals}}
+        {{#if vinyls.length}}
+                {{#each vinyls}}
                     <div class="card-link">
                         <a href="/shop/{{_id}}">
                             <div>
@@ -19,6 +19,6 @@
                     </div>
                 {{/each}}
         {{else}}
-            <p>Животных нет</p>
+            <p>Пластинок нет</p>
         {{/if}}
 </div>

@@ -1,9 +1,9 @@
 import {Schema, model} from 'mongoose'
 
 const orderSchema = new Schema({
-    animals: [
+    vinyls: [
         {
-            animal: {
+            vinyl: {
                 type: Object,
                 required: true,
             },

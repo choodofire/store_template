@@ -28,9 +28,9 @@
                         <ul>
                             {{#if @root.isAdmin}}
                                 {{#if isAdd}}
-                                    <li class="active"><a href="/add">Добавить животное</a></li>
+                                    <li class="active"><a href="/add">Добавить пластинку</a></li>
                                 {{else}}
-                                    <li><a href="/add">Добавить животное</a></li>
+                                    <li><a href="/add">Добавить пластинку</a></li>
                                 {{/if}}
                             {{/if}}
 
@@ -56,9 +56,9 @@
                                 <li><a href="/auth/logout">Выйти</a></li>
                             {{else}}
                                 {{#if isLogin}}
-                                    <li class="active popup-link"><a href="#loginPopup">ВОЙТИ</a></li>
+                                    <li class="active popup-link"><a href="/auth/login">ВОЙТИ</a></li>
                                 {{else}}
-                                    <li><a href="#loginPopup" class="popup-link">ВОЙТИ</a></li>
+                                    <li><a href="/auth/login">ВОЙТИ</a></li>
                                 {{/if}}
                             {{/if}}
                         </ul>

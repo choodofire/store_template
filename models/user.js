@@ -38,9 +38,9 @@ const userSchema = new Schema({
                     required: true,
                     default: 1,
                 },
-                animalId: {
+                vinylId: {
                     type: Schema.Types.ObjectId,
-                    ref: 'Animal',
+                    ref: 'Vinyl',
                     required: true,
                 }
             }
@@ -48,17 +48,17 @@ const userSchema = new Schema({
     }
 })
 
-userSchema.methods.addToCart = function(animal) {
+userSchema.methods.addToCart = function(vinyl) {
     const clonedItems = [...this.cart.items]
     const idx = clonedItems.findIndex(c => {
-        return c.animalId.toString() ===animal._id.toString()
+        return c.vinylId.toString() ===vinyl._id.toString()
     })
 
     if (idx >= 0) {
         clonedItems[idx].count++
     } else {
         clonedItems.push({
-            animalId: animal._id,
+            vinylId: vinyl._id,
             count: 1,
         })
     }
@@ -68,10 +68,10 @@ userSchema.methods.addToCart = function(animal) {
 
 userSchema.methods.removeFromCart = function(id) {
     let items = [...this.cart.items]
-    const idx = items.findIndex(c => c.animalId.toString() === id.toString())
+    const idx = items.findIndex(c => c.vinylId.toString() === id.toString())
 
     if (items[idx].count === 1) {
-        items = items.filter(c => c.animalId.toString() !== id.toString())
+        items = items.filter(c => c.vinylId.toString() !== id.toString())
     } else {
         items[idx].count--
     }

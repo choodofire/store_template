@@ -35,10 +35,10 @@ const registerValidators = [
         .trim()
 ]
 
-const animalValidators = [
+const vinylValidators = [
     body('title').isLength({min: 3}).withMessage('Минимальная длина названия 3 символа').trim(),
     body('price').isNumeric().withMessage('Введите корректную цену'),
     body('img').isURL().withMessage('Введите корректный URL')
 ]
 
-export default {registerValidators, animalValidators}
+export default {registerValidators, vinylValidators}
