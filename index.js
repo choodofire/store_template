@@ -9,7 +9,7 @@ import mongoStore from 'connect-mongodb-session';
 import mongoose from "mongoose";
 import homeRoutes from './routes/home.js';
 import addRoutes from './routes/add.js';
-import recordsRoutes from './routes/vinyls.js';
+import shopRoutes from './routes/shop.js';
 import cartRoutes from './routes/cart.js';
 import ordersRoutes from './routes/orders.js';
 import authRoutes from './routes/auth.js';
@@ -28,7 +28,7 @@ import dotenv from 'dotenv'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'production') {
     dotenv.config({ path: '.env.development' });
 } else {
     dotenv.config({ path: '.env.production' });
@@ -45,7 +45,7 @@ const hbs = expressHBS.create({
 
 const store = new MongoStore({
     collection: 'sessions',
-    uri: "mongodb+srv://vyacheslav:pgSLiNU2xaCeHIJ7@cluster0.qtqihfc.mongodb.net/shop"
+    uri: process.env.MONGODB_URI
 })
 
 app.engine('hbs', hbs.engine)
@@ -61,7 +61,7 @@ app.use(
 )
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/images/avatars', express.static(path.join(__dirname, 'images', 'avatars')))
-app.use('/images/covers', express.static(path.join(__dirname, 'images', 'covers')))
+app.use('/images/homePage-photos', express.static(path.join(__dirname, 'images', 'homePage-photos')))
 app.use('/images/icons',express.static(path.join(__dirname, 'images', 'icons')))
 app.use(express.urlencoded({extended: true}))
 app.use(session({
@@ -81,7 +81,7 @@ app.use(compression())
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
-app.use('/shop', recordsRoutes)
+app.use('/shop', shopRoutes)
 app.use('/cart', cartRoutes)
 app.use('/orders', ordersRoutes)
 app.use('/auth', authRoutes)
@@ -92,11 +92,10 @@ app.use(errorHandler)
 
 async function start() {
     try {
-        await mongoose.connect("mongodb+srv://vyacheslav:pgSLiNU2xaCeHIJ7@cluster0.qtqihfc.mongodb.net/shop", {
+        await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             // useFindAndModify: false,
         })
-        console.log("HELLO - ", process.env.NOVE_ENV)
         await app.listen(process.env.PORT, () => {
             console.log(`Server is running on PORT: ${process.env.PORT}`)
         })

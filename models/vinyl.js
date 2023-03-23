@@ -26,7 +26,7 @@ const vinylSchema = new Schema({
         type: String,
         required: false,
     },
-    style: {
+    genre: {
         // Жанр альбома
         type: String,
         required: false,

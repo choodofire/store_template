@@ -1,14 +1,6 @@
 <div class="auth container">
-    <div class="row">
-        <div>
-            <ul>
-                <li><a href="#login">Войти</a></li>
-                <li><a href="#register">Регистрация</a></li>
-            </ul>
-        </div>
-
+    <div class="row row_auth">
         <div id="login">
-
             {{#if loginError}}
                 <p class="alert">{{loginError}}</p>
             {{/if}}
@@ -37,7 +29,6 @@
 
 
         <div id="register">
-
             {{#if registerError}}
                 <p class="alert">{{registerError}}</p>
             {{/if}}

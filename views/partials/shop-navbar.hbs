@@ -5,71 +5,91 @@
                 <ul>
                     {{#if isAllProducts}}
                         <li class="active">
-                            <button class="js-load-items"  data-id="allProducts">Все товары</button>
+                            <a href="/shop">Все товары</a>
                         </li>
                     {{else}}
                         <li>
-                            <button class="js-load-items"  data-id="allProducts">Все товары</button>
+                            <a href="/shop">Все товары</a>
                         </li>
                     {{/if}}
 
-                    {{#if isSnakes}}
+                    {{#if isIndie}}
                         <li class="active">
-                            <button class="js-load-items" data-id="indie">INDIE/ALTERNATIVE</button>
+                            <a href="/shop/genre/indie">INDIE/ALTERNATIVE</a>
                         </li>
                     {{else}}
                         <li>
-                            <button class="js-load-items" data-id="indie">INDIE/ALTERNATIVE</button>
+                            <a href="/shop/genre/indie">INDIE/ALTERNATIVE</a>
                         </li>
                     {{/if}}
 
-                    {{#if isLizards}}
+                    {{#if isPop}}
                         <li class="active">
-                            <button class="js-load-items" data-id="pop">POP</button>
+                            <a href="/shop/genre/pop">POP</a>
                         </li>
                     {{else}}
                         <li>
-                            <button class="js-load-items" data-id="pop">POP</button>
+                            <a href="/shop/genre/pop">POP</a>
                         </li>
                     {{/if}}
 
-                    {{#if isEublefar}}
+                    {{#if isHipHop}}
                         <li class="active">
-                            <button class="js-load-items" data-id="hipHop">HIP-HOP</button>
+                            <a href="/shop/genre/hiphop">HIP-HOP</a>
                         </li>
                     {{else}}
                         <li>
-                            <button class="js-load-items" data-id="hipHop">HIP-HOP</button>
+                            <a href="/shop/genre/hiphop">HIP-HOP</a>
                         </li>
                     {{/if}}
 
-                    {{#if isSpider}}
+                    {{#if isJazz}}
                         <li class="active">
-                            <button class="js-load-items" data-id="jazz">JAZZ</button>
+                            <a href="/shop/genre/jazz">JAZZ</a>
                         </li>
                     {{else}}
                         <li>
-                            <button class="js-load-items" data-id="jazz">JAZZ</button>
+                            <a href="/shop/genre/jazz">JAZZ</a>
                         </li>
                     {{/if}}
 
-                    {{#if isAmphibian}}
+                    {{#if isElectronic}}
                         <li class="active">
-                            <button class="js-load-items" data-id="emo">EMO/POP-PUNK</button>
+                            <a href="/shop/genre/electronic">ELECTRONIC/DANCE</a>
                         </li>
                     {{else}}
                         <li>
-                            <button class="js-load-items" data-id="emo">EMO/POP-PUNK</button>
+                            <a href="/shop/genre/electronic">ELECTRONIC/DANCE</a>
                         </li>
                     {{/if}}
 
-                    {{#if isTurtle}}
+                    {{#if isEmo}}
                         <li class="active">
-                            <button class="js-load-items" data-id="metal">METAL</button>
+                            <a href="/shop/genre/emo">EMO/POP-PUNK</a>
                         </li>
                     {{else}}
                         <li>
-                            <button class="js-load-items" data-id="metal">METAL</button>
+                            <a href="/shop/genre/emo">EMO/POP-PUNK</a>
+                        </li>
+                    {{/if}}
+
+                    {{#if isMetal}}
+                        <li class="active">
+                            <a href="/shop/genre/metal">METAL</a>
+                        </li>
+                    {{else}}
+                        <li>
+                            <a href="/shop/genre/metal">METAL</a>
+                        </li>
+                    {{/if}}
+
+                    {{#if isDeath}}
+                        <li class="active">
+                            <a href="/shop/genre/death">BLACK/DEATH METAL</a>
+                        </li>
+                    {{else}}
+                        <li>
+                            <a href="/shop/genre/death">BLACK/DEATH METAL</a>
                         </li>
                     {{/if}}
                 </ul>

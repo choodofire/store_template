@@ -21,7 +21,7 @@ function computePrice(vinyls) {
 router.post('/add', authMiddleware, async (req, res) => {
     const vinyl = await Vinyl.findById(req.body.id)
     await req.user.addToCart(vinyl)
-    res.redirect('/cart')
+    res.status(200).redirect('/shop')
 })
 
 router.get('/', authMiddleware, async (req, res) => {

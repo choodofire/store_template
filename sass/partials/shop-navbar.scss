@@ -1,26 +1,26 @@
-@import "colors.scss";
+@import "../colors.scss";
 
-.header {
+.shop-header {
   height: 80px;
-  font-size: 14px;
-  font-weight: bold;
-  background: $black;
+  font-size: 16px;
+  background: $white;
   position: relative;
+  display: flex;
+  justify-content: space-around;
   a {
-    color: $white;
+    color: $black;
     padding-bottom: 5px;
   }
   a::before {
-    background-color: $white;
+    background-color: $black;
   }
-
   &__nav {
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
     div {
       ul {
-        padding: 0 50px 10px 50px;
+        padding: 0;
         margin-top: 28px;
         margin-bottom: 0;
         li {
@@ -32,20 +32,6 @@
   &__left {
     li {
       margin-right: 20px;
-    }
-  }
-  &__right {
-    li{
-      margin-left: 20px;
-    }
-  }
-  &__center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    img {
-      width: 100%;
     }
   }
 }

@@ -1,6 +1,6 @@
 <div class="row card-animal-description">
     <h3>{{vinyl.title}}</h3>
-    <div class="col s12">
+    <div class="vinyl_shop_one">
         <div class="col s6">
                 <div class="animal">
                     <img src="{{vinyl.img}}" alt="{{vinyl.title}}">
@@ -11,15 +11,12 @@
         </div>
         <div class="col s6">
             <div class="description">
-                <h5>Обзор</h5>
-                {{#if vinyl.description}}
-                    <p>
-                        {{vinyl.description}}
-                    </p>
-                {{else}}
-                    <p>Описание пока не добавлено</p>
-                {{/if}}
-
+                <p>Формат: {{vinyl.format}}</p>
+                <p>Лейбл: {{vinyl.label}}</p>
+                <p>Жанр: {{vinyl.genre}}</p>
+                <p>Исполнитель: {{vinyl.musician}}</p>
+                <p>Дата релиза: {{vinyl.release_date}}</p>
+                <p>Описание: {{vinyl.description}}</p>
 
                 {{#if @root.isAuth}}
                     <form action="/cart/add" method="POST">

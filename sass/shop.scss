@@ -1,5 +1,5 @@
 @import "colors.scss";
-@import "shop-navbar.scss";
+@import "partials/shop-navbar.scss";
 
 .card-link {
   height: 500px;
@@ -24,4 +24,10 @@
     background: $hover;
     transition: 0.5s;
   }
+}
+
+.vinyl_shop_one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
