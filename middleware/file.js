@@ -1,15 +1,27 @@
 import multer from 'multer'
 
 const storage = multer.diskStorage({
-    destination(req, file, cb) {
-        cb(null, "images/avatars")
+    destination: function (req, file, cb) {
+        if (file.fieldname === 'avatar') {
+            cb(null, 'images/avatars');
+        } else if (file.fieldname === 'vinyl') {
+            cb(null, 'images/vinyls');
+        } else {
+            cb(new Error('Invalid file type'));
+        }
     },
-    filename(req, file, cb) {
-        cb(null, req.session.user.email + ".png")
+    filename: function (req, file, cb) {
+        if (file.fieldname === 'avatar') {
+            cb(null, req.session.user.email + ".png")
+        } else if (file.fieldname === 'vinyl') {
+            cb(null, req.body.title + ".png")
+        } else {
+            cb(new Error('Invalid file type'));
+        }
     }
 })
 
-const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg']
+const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/webp']
 
 const fileFilter = (req, file, cb) => {
     if (allowedTypes.includes(file.mimetype)) {
@@ -19,9 +31,16 @@ const fileFilter = (req, file, cb) => {
     }
 }
 
-const upload = multer({
+const fileMiddleware = multer({
     storage,
     fileFilter,
 })
 
-export default upload
+function handleImageUpload(req, res, next) {
+    if (!req.files) {
+        return res.status(400).json({ error: 'No file uploaded' });
+    }
+    next();
+}
+
+export { fileMiddleware, handleImageUpload }

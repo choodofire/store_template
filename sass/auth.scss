@@ -1,11 +1,15 @@
 @import "colors.scss";
 
-.row_auth {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.auth {
+  padding-top: 1rem;
 
-  > div {
-    margin: 40px 15px;
+  .row_auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    > div {
+      margin: 40px 15px;
+    }
   }
 }

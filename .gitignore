@@ -2,3 +2,4 @@ node_modules
 .idea
 *.env.development
 ./images/avatars
+./images/vinyls

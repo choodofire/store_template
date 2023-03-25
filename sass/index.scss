@@ -1,19 +1,23 @@
 @import "colors.scss";
-@import "partials/footer.scss";
-@import "partials/navbar.scss";
+@import "auth.scss";
 @import "home.scss";
 @import "shop.scss";
-@import "components/input.scss";
 @import "profile.scss";
+@import "vinyl.scss";
+@import "add-edit.scss";
+@import "partials/info.scss";
+@import "partials/footer.scss";
+@import "partials/navbar.scss";
 @import "components/button.scss";
-@import "auth.scss";
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import "components/input.scss";
+@import "components/link.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', serif;
 }
 
 html, body{
@@ -38,32 +42,13 @@ html, body{
   height: 100vh;
 }
 
-.link-underlined {
-  a::before {
-    content: '';
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    transition: 0.3s;
-  }
-  a:hover:before {
-    width: 100%;
-    left: 0;
-  }
-}
-
-.active {
-  a::before {
-    content: '';
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    transition: 0.3s;
-  }
+.alert {
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: rgba(255, 0, 0, .3);
+  color: red;
 }
 
 .animal {
@@ -90,44 +75,8 @@ html, body{
   justify-content: space-evenly;
 }
 
-.card-animal-description {
-  h3 {
-    text-align: center;
-  }
-  .description {
-
-    .price.big {
-      font-size: 2rem;
-    }
-  }
-
-}
-
 .card-action {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.course-form {
-  margin-bottom: 2rem;
-}
-
-.auth {
-  padding-top: 1rem
-}
-
-.alert {
-  padding: .5rem 1rem;
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 1rem;
-  background: rgba(255, 0, 0, .3);
-  color: red;
-}
-
-.input_rows {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 }

@@ -1,0 +1,22 @@
+@import "colors.scss";
+
+.add-edit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    margin: 20px 0;
+  }
+  &__rows {
+    display: flex;
+    flex-direction: row;
+    .input-field {
+      margin: 15px 25px;
+      width: 700px;
+    }
+    button {
+      margin: 15px 25px;
+    }
+  }
+}

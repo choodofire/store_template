@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=production node index.js",
-    "dev": "nodemon index.js --env development"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js "
   },
   "author": "Gordeev Vyacheslav <ResSlavkaRes@mail.ru>",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.20"
   },
   "dependencies": {

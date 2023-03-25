@@ -38,7 +38,13 @@ const registerValidators = [
 const vinylValidators = [
     body('title').isLength({min: 3}).withMessage('Минимальная длина названия 3 символа').trim(),
     body('price').isNumeric().withMessage('Введите корректную цену'),
-    body('img').isURL().withMessage('Введите корректный URL')
+    body('format').isLength({min: 2}).withMessage('Минимальная длина формата записи 2 символа').trim(),
+    body('label').isLength({min: 3}).withMessage('Минимальная длина лейбла 3 символа').trim(),
+    body('genre').isLength({min: 2}).withMessage('Минимальная длина названия 2 символа').trim(),
+    body('musician').isLength({min: 2}).withMessage('Минимальная длина исполнителя 2 символа').trim(),
+    body('release_date').isLength({min: 8}).withMessage('Минимальная длина даты 8 символов').trim(),
+    body('quantity').isNumeric().withMessage('Введите корректную цену'),
+
 ]
 
 export default {registerValidators, vinylValidators}

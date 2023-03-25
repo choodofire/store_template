@@ -1,37 +1,106 @@
-<h1>Редактировать {{vinyl.title}}</h1>
+<div class="add-edit">
+    <h1>Редактировать {{vinyl.title}}</h1>
+    {{#if error}}
+        <p class="alert">{{error}}</p>
+    {{/if}}
 
-<form action="/shop/edit" method="post" class="course-form">
-    <div class="input-field">
-        <input id="title" name="title" type="text" class="validate" required value="{{vinyl.title}}">
-        <label for="title">Название пластинки</label>
-        <span class="helper-text" data-error="Введите название"></span>
-    </div>
-    <div class="input-field">
-        <input id="price" name="price" type="number" class="validate" required min="1" value="{{vinyl.price}}">
-        <label for="price">Цена пластинки</label>
-        <span class="helper-text" data-error="Введите цену"></span>
-    </div>
-    <div class="input-field">
-        <input id="image" name="img" type="text" class="validate" required value="{{vinyl.img}}">
-        <label for="img">URL фото</label>
-        <span class="helper-text" data-error="Введите URL-картинку"></span>
-    </div>
-    <div class="input-field">
-        <textarea id="description" name="description" class="materialize-textarea">{{vinyl.description}}</textarea>
-        <label for="description">Введите описание</label>
-        <span class="helper-text" data-error="Введите описание"></span>
-    </div>
+    <form action="/shop/edit" method="post" enctype="multipart/form-data">
+        <div class="add-edit__rows">
+            <div>
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="title" class="input-field__label">Название пластинки</label>
+                        <input id="title" name="title" type="text" class="validate input-field__input" required value="{{vinyl.title}}">
+                        <span class="helper-text" data-error="Введите название"></span>
+                    </div>
+                </div>
 
-    <input type="hidden" name="_csrf" value="{{csrf}}">
-    <input type="hidden" name="id" value="{{vinyl._id}}">
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="price" class="input-field__label">Цена пластинки</label>
+                        <input id="price" name="price" type="number" class="validate input-field__input" required min="1" value="{{vinyl.price}}">
+                        <span class="helper-text" data-error="Введите цену"></span>
+                    </div>
+                </div>
 
-    <button type="submit" class="btn btn-primary">Редактировать пластинку</button>
-</form>
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="format" class="input-field__label">Формат записи (LP, CD, Limited, Colour)</label>
+                        <textarea id="format" name="format" class="validate input-field__textarea">{{vinyl.format}}</textarea>
+                        <span class="helper-text" data-error="Введите формат"></span>
+                    </div>
+                </div>
 
-<form action="/shop/remove" method="post">
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="label" class="input-field__label">Лейбл</label>
+                        <input id="label" name="label" type="text" class="validate input-field__input" required value="{{vinyl.label}}">
+                        <span class="helper-text" data-error="Введите лейбл"></span>
+                    </div>
+                </div>
 
-    <input type="hidden" name="id" value="{{vinyl._id}}">
-    <input type="hidden" name="_csrf" value="{{csrf}}">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Обложка</span>
+                        <input type="file" name="vinyl">
+                    </div>
+                </div>
+            </div>
 
-    <button class="btn red">Удалить пластинку</button>
-</form>
+            <div>
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="genre" class="input-field__label">Жанр альбома</label>
+                        <input id="genre" name="genre" type="text" class="validate input-field__input" required value="{{vinyl.genre}}">
+                        <span class="helper-text" data-error="Введите жанр"></span>
+                    </div>
+                </div>
+
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="musician" class="input-field__label">Автор альбома</label>
+                        <input id="musician" name="musician" type="text" class="validate input-field__input" required value="{{vinyl.musician}}">
+                        <span class="helper-text" data-error="Введите автора альбома"></span>
+                    </div>
+                </div>
+
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="release_date" class="input-field__label">Дата релиза альбома</label>
+                        <input id="release_date" name="release_date" type="text" class="validate input-field__input" required value="{{vinyl.release_date}}">
+                        <span class="helper-text" data-error="Введите дату релиза"></span>
+                    </div>
+                </div>
+
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="quantity" class="input-field__label">Количество в наличии</label>
+                        <input id="quantity" name="quantity" type="text" class="validate input-field__input" required value="{{vinyl.quantity}}">
+                        <span class="helper-text" data-error="Введите количество"></span>
+                    </div>
+                </div>
+
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="description" class="input-field__label">Введите доп описание</label>
+                        <textarea id="description" name="description" class="input-field__textarea">{{vinyl.description}}</textarea>
+                        <span class="helper-text" data-error="Введите доп описание"></span>
+                    </div>
+                </div>
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+                <input type="hidden" name="id" value="{{vinyl._id}}">
+                <button type="submit" class="btn btn-primary">Редактировать пластинку</button>
+            </div>
+        </div>
+    </form>
+
+    <form action="/shop/remove" method="post">
+
+        <input type="hidden" name="id" value="{{vinyl._id}}">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+
+        <button class="btn red">Удалить пластинку</button>
+    </form>
+</div>
+
+

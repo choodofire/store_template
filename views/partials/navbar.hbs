@@ -28,37 +28,37 @@
                         <ul>
                             {{#if @root.isAdmin}}
                                 {{#if isAdd}}
-                                    <li class="active"><a href="/add">Добавить пластинку</a></li>
+                                    <li class="active"><a href="/add">ДОБАВИТЬ ПЛАСТИНКУ</a></li>
                                 {{else}}
-                                    <li><a href="/add">Добавить пластинку</a></li>
+                                    <li><a href="/add">ДОБАВИТЬ ПЛАСТИНКУ</a></li>
                                 {{/if}}
                             {{/if}}
 
                             {{#if isAuth}}
 
                                 {{#if isProfile}}
-                                    <li class="active"><a href="/profile">Профиль</a></li>
+                                    <li class="active"><a href="/profile">ПРОФИЛЬ</a></li>
                                 {{else}}
-                                    <li><a href="/profile">Профиль</a></li>
+                                    <li><a href="/profile">ПРОФИЛЬ</a></li>
                                 {{/if}}
 
                                 {{#if isCart}}
-                                    <li class="active"><a href="/cart">Корзина</a></li>
+                                    <li class="active"><a href="/cart">КОРЗИНА</a></li>
                                 {{else}}
-                                    <li><a href="/cart">Корзина</a></li>
+                                    <li><a href="/cart">КОРЗИНА</a></li>
                                 {{/if}}
 
                                 {{#if isOrders}}
-                                    <li class="active"><a href="/orders">Заказы</a></li>
+                                    <li class="active"><a href="/orders">ЗАКАЗЫ</a></li>
                                 {{else}}
-                                    <li><a href="/orders">Заказы</a></li>
+                                    <li><a href="/orders">ЗАКАЗЫ</a></li>
                                 {{/if}}
-                                <li><a href="/auth/logout">Выйти</a></li>
+                                <li><a href="/auth/logout">ВЫЙТИ</a></li>
                             {{else}}
                                 {{#if isLogin}}
-                                    <li class="active popup-link"><a href="/auth/login">ВОЙТИ</a></li>
+                                    <li class="active popup-link"><a href="/auth/login">ВОЙТИ / РЕГИСТРАЦИЯ</a></li>
                                 {{else}}
-                                    <li><a href="/auth/login">ВОЙТИ</a></li>
+                                    <li><a href="/auth/login">ВОЙТИ / РЕГИСТРАЦИЯ</a></li>
                                 {{/if}}
                             {{/if}}
                         </ul>

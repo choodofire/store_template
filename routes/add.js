@@ -3,6 +3,8 @@ import authMiddleware from "../middleware/auth.js";
 import checkAPIs from "express-validator"
 import validators from "../utils/validators.js";
 import Vinyl from "../models/vinyl.js";
+import { handleImageUpload } from "../middleware/file.js";
+import path from "path";
 
 const router = Router()
 
@@ -20,7 +22,7 @@ router.get('/', authMiddleware, (req, res) => {
     }
 })
 
-router.post('/', authMiddleware, vinylValidators, async (req, res) => {
+router.post('/', authMiddleware, async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.status(422).render('add', {
@@ -32,8 +34,12 @@ router.post('/', authMiddleware, vinylValidators, async (req, res) => {
             }
         })
     }
+
+    if (req.files?.vinyl) {
+        req.body.img = path.join("images", "vinyls", req.files.vinyl[0].filename);
+    }
+
     const newVinyl = Object.assign({...req.body}, {userId: req.user._id})
-    console.log(newVinyl)
     const vinyl = new Vinyl(Object.assign(newVinyl))
 
     try {

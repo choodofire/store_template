@@ -17,7 +17,7 @@ import profileRoutes from './routes/profile.js'
 import infoRoutes from './routes/info.js'
 import varMiddleware from './middleware/variables.js';
 import userMiddleware from './middleware/user.js';
-import fileMiddleware from './middleware/file.js'
+import { fileMiddleware } from "./middleware/file.js";
 import helmet from 'helmet'
 import compression from "compression"
 import hbsHelper from './utils/hbs-helper.js'
@@ -28,7 +28,7 @@ import dotenv from 'dotenv'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
     dotenv.config({ path: '.env.development' });
 } else {
     dotenv.config({ path: '.env.production' });
@@ -61,6 +61,7 @@ app.use(
 )
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/images/avatars', express.static(path.join(__dirname, 'images', 'avatars')))
+app.use('/images/vinyls', express.static(path.join(__dirname, 'images', 'vinyls')))
 app.use('/images/homePage-photos', express.static(path.join(__dirname, 'images', 'homePage-photos')))
 app.use('/images/icons',express.static(path.join(__dirname, 'images', 'icons')))
 app.use(express.urlencoded({extended: true}))
@@ -70,13 +71,22 @@ app.use(session({
     saveUninitialized: false,
     store: store,
 }))
-app.use(fileMiddleware.single("avatar"))
+app.use(fileMiddleware.fields([
+    {
+        name: 'vinyl',
+        maxCount: 1
+    },
+    {
+        name: 'avatar',
+        maxCount: 1
+    }
+]))
 app.use(csrf())
 app.use(varMiddleware)
 app.use(userMiddleware)
 
 app.use(flash())
-// app.use(helmet())
+app.use(helmet())
 app.use(compression())
 
 app.use('/', homeRoutes)
@@ -97,6 +107,7 @@ async function start() {
             // useFindAndModify: false,
         })
         await app.listen(process.env.PORT, () => {
+            console.log(`Server is running on MODE: ${process.env.NODE_ENV}`)
             console.log(`Server is running on PORT: ${process.env.PORT}`)
         })
     } catch (e) {

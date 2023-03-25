@@ -1,0 +1,29 @@
+@import "../colors.scss";
+
+.link-underlined {
+  a::before {
+    content: '';
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    transition: 0.3s;
+  }
+  a:hover:before {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.active {
+  a::before {
+    content: '';
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    transition: 0.3s;
+  }
+}

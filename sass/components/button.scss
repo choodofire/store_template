@@ -3,6 +3,7 @@
 .btn {
   min-width: 140px;
   padding: 10px 20px;
+  margin: 10px 0;
   height: 50px;
   background-color: $button;
   border: black 2px;
@@ -20,4 +21,14 @@
 .btn:focus {
   transition: all 0.8s ease 0s;
   background-color: $black;
+}
+
+.red {
+  background-color: $red;
+  color: $black
+}
+
+.red:hover {
+  background-color: $redHover;
+  color: $black
 }

@@ -6,14 +6,14 @@
             <h1>Забыли пароль?</h1>
             <form action="/auth/reset" method="post">
                 <div class="input-field">
-                    <input id="email" name="email" type="email" class="validate" required>
-                    <label for="email">Email</label>
-                    <span class="helper-text" data-error="Введите email"></span>
+                    <div class="input-field__control">
+                        <label for="email" class="input-field__label">Email</label>
+                        <input id="email" name="email" type="email" class="validate input-field__input" required>
+                        <span class="helper-text" data-error="Введите email"></span>
+                    </div>
                 </div>
-
                 <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button class="btn btn-primary" type="submit">Сбросить</button>
-
             </form>
         </div>
 </div>

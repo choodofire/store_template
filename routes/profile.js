@@ -1,11 +1,13 @@
 import {Router} from 'express'
-import auth from '../middleware/auth.js'
+import authMiddleware from '../middleware/auth.js'
 import User from "../models/user.js";
 import Order from "../models/order.js";
+import { handleImageUpload } from "../middleware/file.js";
+import path from "path";
 
 const router = Router()
 
-router.get('/', auth, async (req, res) => {
+router.get('/', authMiddleware, async (req, res) => {
     const orders = await Order.find({'user.userId': req.user._id})
         .lean()
         .populate('user.userId')
@@ -25,7 +27,7 @@ router.get('/', auth, async (req, res) => {
     })
 })
 
-router.post('/', auth, async (req, res) => {
+router.post('/', authMiddleware, async (req, res) => {
     try {
         const user = await User.findById(req.user._id)
 
@@ -37,8 +39,8 @@ router.post('/', auth, async (req, res) => {
             }
         }
 
-        if (req.file) {
-            toChange.avatarUrl = req.file.path
+        if (req.files?.avatar) {
+            toChange.avatarUrl = path.join("images", "avatars", req.files.avatar[0].filename);
         }
 
         Object.assign(user, toChange)
@@ -49,6 +51,5 @@ router.post('/', auth, async (req, res) => {
         console.log(e)
     }
 })
-
 
 export default router

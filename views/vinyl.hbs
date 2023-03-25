@@ -3,7 +3,7 @@
     <div class="vinyl_shop_one">
         <div class="col s6">
                 <div class="animal">
-                    <img src="{{vinyl.img}}" alt="{{vinyl.title}}">
+                    <img src="/{{vinyl.img}}" alt="img-{{vinyl.title}}">
                     {{#if @root.isAdmin}}
                         <a href="/shop/{{vinyl._id}}/edit?allow=true">Редактировать</a>
                     {{/if}}

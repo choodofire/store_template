@@ -11,6 +11,7 @@
                     <div class="input-field__control">
                         <label for="email" class="input-field__label">Email</label>
                         <input id="email" name="email" type="email" class="validate input-field__input" required>
+                        <span class="helper-text" data-error="Введите email"></span>
                     </div>
                 </div>
                 <div class="input-field">
@@ -26,7 +27,6 @@
 
             </form>
         </div>
-
 
         <div id="register">
             {{#if registerError}}
