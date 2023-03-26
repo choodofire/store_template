@@ -1,103 +1,97 @@
 <div class="profile">
+    <h1>Профиль</h1>
     <div class="profile__info">
-        <h1>Профиль</h1>
-        <div class="profile__static">
+
+        <div class="profile__data">
             <div>
-                {{#if user.avatarUrl}}
-                    <div class="profile__avatar-border">
-                        <img src="/{{user.avatarUrl}}" alt="avatar-{{user.name}}">
-                    </div>
-                {{else}}
-                    <div>
-                        <div class="profile__avatar-border">
-                            <img src="../images/icons/default-avatar.png" alt="No Avatar">
-                        </div>
-                        <p>Аватар не установлен</p>
-                    </div>
-                {{/if}}
-            </div>
-
-            <div class="input-field input-field--is-filled">
-                <div class="input-field__control">
-                    <label for="email" class="input-field__label">Email</label>
-                    <input id="email" name="email" type="text" class="validate input-field__input" value="{{user.email}}" disabled>
-                </div>
-            </div>
-        </div>
-
-        <div class="">
-            <form action="/profile" method="post" enctype="multipart/form-data">
-                <div class="profile__form">
-                    <div class="profile__change-info">
-                        <div class="input-field input-field--is-filled">
-                            <div class="input-field__control">
-                                <label for="name" class="input-field__label">Имя</label>
-                                <input id="name" name="name" type="text" class="validate input-field__input"  required value="{{user.name}}">
-                                <span class="helper-text" data-error="Имя не может быть пустым"></span>
-                            </div>
-                        </div>
-
-                        <div class="file-field input-field">
-                            <div class="btn">
-                                <span>Аватар</span>
-                                <input type="file" name="avatar">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="profile__address">
-                        <div class="input-field input-field--is-filled">
-                            <div class="input-field__control">
-                                <label for="country" class="input-field__label">Страна/Регион</label>
-                                <input id="country" name="country" type="text" class="validate input-field__input" value="{{user.address.country}}">
-                            </div>
-                        </div>
-                        <div class="input-field input-field--is-filled">
-                            <div class="input-field__control">
-                                <label for="fullAddress" class="input-field__label">Введите полный адрес</label>
-                                <input id="fullAddress" name="fullAddress" type="text" class="validate input-field__input" value="{{user.address.fullAddress}}">
-                            </div>
-                        </div>
-                        <input type="hidden" name="email" value="{{user.email}}">
-                        <input type="hidden" name="_csrf" value="{{csrf}}">
-                        <button type="submit" class="btn">Сохранить</button>
-                    </div>
-
-                </div>
-            </form>
-        </div>
-
-    </div>
-
-    <div class="profile__orders">
-        <h1>Заказы:</h1>
-        {{#if orders.length}}
-            {{#each orders}}
                 <div>
-                    <div>
-                        <div class="card">
-                            <div class="card-content">
-                                <hr>
-                                <span class="card-title">Заказ:
-                                    <small>{{_id}}</small>
-                                </span>
-                                <p class="date">{{date}}</p>
-                                <p><em>{{user.name}} </em>({{user.userId.email}})</p>
-                                <ol>
-                                    {{#each vinyls}}
-                                        <li>
-                                            {{vinyl.title}} (x <strong>{{count}}</strong>)
-                                        </li>
-                                    {{/each}}
-                                </ol>
-                                <p>Цена: <span class="price">{{price}}</span></p>
-                            </div>
+                    {{#if user.avatarUrl}}
+                        <div class="profile__avatar-border">
+                            <img src="/{{user.avatarUrl}}" alt="avatar-{{user.name}}">
                         </div>
+                    {{else}}
+                        <div>
+                            <div class="profile__avatar-border">
+                                <img src="../images/icons/default-avatar.png" alt="No Avatar">
+                            </div>
+                            <p>Аватар не установлен</p>
+                        </div>
+                    {{/if}}
+                </div>
+
+                <div class="input-field input-field--is-filled">
+                    <div class="input-field__control">
+                        <label for="email" class="input-field__label">Email</label>
+                        <input id="email" name="email" type="text" class="validate input-field__input" value="{{user.email}}" disabled>
                     </div>
                 </div>
-            {{/each}}
-        {{else}}
-            <p>Заказов еще нет</p>
-        {{/if}}
+            </div>
+
+            <div>
+                <form action="/profile" method="post" enctype="multipart/form-data">
+                    <div class="profile__form">
+                        <div>
+                            <div class="input-field input-field--is-filled">
+                                <div class="input-field__control">
+                                    <label for="name" class="input-field__label">Имя</label>
+                                    <input id="name" name="name" type="text" class="validate input-field__input"  required value="{{user.name}}">
+                                    <span class="helper-text" data-error="Имя не может быть пустым"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-field">
+                                <div class="btn">
+                                    <span>Аватар</span>
+                                    <input type="file" name="avatar">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="input-field input-field--is-filled">
+                                <div class="input-field__control">
+                                    <label for="country" class="input-field__label">Страна/Регион</label>
+                                    <input id="country" name="country" type="text" class="validate input-field__input" value="{{user.address.country}}">
+                                </div>
+                            </div>
+                            <div class="input-field input-field--is-filled">
+                                <div class="input-field__control">
+                                    <label for="fullAddress" class="input-field__label">Введите полный адрес</label>
+                                    <input id="fullAddress" name="fullAddress" type="text" class="validate input-field__input" value="{{user.address.fullAddress}}">
+                                </div>
+                            </div>
+                            <input type="hidden" name="email" value="{{user.email}}">
+                            <input type="hidden" name="_csrf" value="{{csrf}}">
+                            <button type="submit" class="btn">Сохранить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="orders">
+            <h1>Заказы</h1>
+            {{#if orders.length}}
+                {{#each orders}}
+                    <div class="orders__one">
+                        <hr>
+                        <p><strong>Заказ № </strong><small>{{_id}}</small></p>
+                        <p><strong>Дата: </strong><span class="date">{{date}}</span></p>
+                        <p><strong>Покупатель: </strong><em>{{user.name}} – </em>({{user.userId.email}})</p>
+                        <ol>
+                            {{#each vinyls}}
+                                <li>
+                                    {{vinyl.title}} (x <strong>{{count}}</strong>)
+                                </li>
+                            {{/each}}
+                        </ol>
+                        <p><strong>Цена: </strong><span class="price">{{price}}</span></p>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p>Заказов еще нет</p>
+            {{/if}}
+        </div>
+
     </div>
 </div>

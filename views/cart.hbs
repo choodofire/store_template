@@ -1,35 +1,40 @@
-<h1>Корзина</h1>
-<div id="cart">
-    {{#if vinyls.length}}
-        <table>
-            <thead>
-            <tr>
-                <th>Название</th>
-                <th>Кол-во</th>
-                <th>Действия</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each vinyls}}
+<div class="cart">
+    <h1>Корзина</h1>
+    <div id="cart" class="cart__info">
+        {{#if vinyls.length}}
+            <table>
+                <thead>
                 <tr>
-                    <td>{{title}}</td>
-                    <td>{{count}}</td>
-                    <td>
-                        <button class="btn btn-small js-remove" data-id="{{_id}}" data-csrf="{{@root.csrf}}">Удалить</button>
-                    </td>
+                    <th>Название</th>
+                    <th>Кол-во</th>
+                    <th>Действия</th>
                 </tr>
-            {{/each}}
-            </tbody>
-        </table>
-        <p><strong>Цена: </strong><span class="price">{{price}}</span></p>
+                </thead>
+                <tbody>
+                {{#each vinyls}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{count}}</td>
+                        <td>
+                            <button class="btn js-remove" data-id="{{_id}}" data-csrf="{{@root.csrf}}">Удалить</button>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
 
+            <div class="cart__info__footer">
+                <p><strong>Цена: </strong><span class="price">{{price}}</span></p>
+                <form action="/orders" method="post">
+                    <input type="hidden" name="_csrf" value="{{csrf}}">
+                    <button type="submit" class="btn">Сделать заказ</button>
+                </form>
+            </div>
 
-        <form action="/orders" method="post">
-            <input type="hidden" name="_csrf" value="{{csrf}}">
-            <button type="submit" class="btn">Сделать заказ</button>
-        </form>
-
-    {{else}}
-        <p>Корзина пуста</p>
-    {{/if}}
+        {{else}}
+            <p>Корзина пуста</p>
+        {{/if}}
+    </div>
 </div>
+
+

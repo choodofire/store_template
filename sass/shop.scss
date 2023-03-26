@@ -1,26 +1,35 @@
 @import "colors.scss";
 @import "partials/shop-navbar.scss";
 
-.card-link {
-  height: 500px;
-  width: 400px;
-  .card.animal {
-    height: 500px;
-    width: 400px;
+.shop {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  > p {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  &__card-link {
+    background-color: $white;
+    height: 100%;
+  }
+
+  &__card {
     img {
-      max-height: 350px;
+      height: 350px;
       width: auto;
     }
-    .animal-description {
-      height: 100%;
-      width: 100%;
-      margin: 0 auto auto 0;
+    &__description {
+      height: 100px;
+      text-align: center;
+      padding-top: 10px;
     }
   }
-}
 
-.card-link:hover {
-  .animal-description {
+  &__card-link:hover {
     background: $hover;
     transition: 0.5s;
   }

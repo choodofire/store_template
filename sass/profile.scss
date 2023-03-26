@@ -2,22 +2,37 @@
 
 .profile {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 
-  &__static {
+  h1 {
+    margin: 20px 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    > div {
+      margin: 0 30px;
+    }
+  }
+
+  &__data {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    > div {
+      margin: 0 30px;
+    }
   }
 
   &__form {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   &__avatar-border {
@@ -31,10 +46,5 @@
       max-width: 300px;
       height: auto;
     }
-  }
-
-  &__orders {
-    width: 600px;
-
   }
 }

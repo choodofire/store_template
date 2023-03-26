@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js "
+    "start:dev": "cross-env NODE_ENV=development nodemon index.js "
   },
   "author": "Gordeev Vyacheslav <ResSlavkaRes@mail.ru>",
   "license": "ISC",

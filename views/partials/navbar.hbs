@@ -33,6 +33,13 @@
                                     <li><a href="/add">ДОБАВИТЬ ПЛАСТИНКУ</a></li>
                                 {{/if}}
                             {{/if}}
+                            {{#if @root.isAdmin}}
+                                {{#if isOrders}}
+                                    <li class="active"><a href="/orders">ВСЕ ЗАКАЗЫ</a></li>
+                                {{else}}
+                                    <li><a href="/orders">ВСЕ ЗАКАЗЫ</a></li>
+                                {{/if}}
+                            {{/if}}
 
                             {{#if isAuth}}
 
@@ -48,11 +55,6 @@
                                     <li><a href="/cart">КОРЗИНА</a></li>
                                 {{/if}}
 
-                                {{#if isOrders}}
-                                    <li class="active"><a href="/orders">ЗАКАЗЫ</a></li>
-                                {{else}}
-                                    <li><a href="/orders">ЗАКАЗЫ</a></li>
-                                {{/if}}
                                 <li><a href="/auth/logout">ВЫЙТИ</a></li>
                             {{else}}
                                 {{#if isLogin}}

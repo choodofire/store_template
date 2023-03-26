@@ -2,15 +2,15 @@
 <div class="shop" id="shop">
         {{#if vinyls.length}}
                 {{#each vinyls}}
-                    <div class="card-link">
+                    <div class="shop__card-link">
                         <a href="/shop/{{_id}}">
                             <div>
-                                <div class="card animal">
-                                    <div class="card-image">
+                                <div class="shop__card">
+                                    <div>
                                         <img src="/{{img}}" alt="{{title}}">
                                     </div>
-                                    <div class="card-content animal-description">
-                                        <span class="card-title">{{title}}</span>
+                                    <div class="shop__card__description">
+                                        <span>{{title}}</span>
                                         <p class="price">{{price}}</p>
                                     </div>
                                 </div>

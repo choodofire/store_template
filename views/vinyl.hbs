@@ -1,22 +1,22 @@
-<div class="row card-animal-description">
-    <h3>{{vinyl.title}}</h3>
-    <div class="vinyl_shop_one">
-        <div class="col s6">
-                <div class="animal">
-                    <img src="/{{vinyl.img}}" alt="img-{{vinyl.title}}">
-                    {{#if @root.isAdmin}}
-                        <a href="/shop/{{vinyl._id}}/edit?allow=true">Редактировать</a>
-                    {{/if}}
-                </div>
+<div class="vinyl-instance">
+    <h2>{{vinyl.title}}</h2>
+    <div class="vinyl-instance__info">
+        <div>
+            <div class="vinyl-instance__image">
+                <img src="/{{vinyl.img}}" alt="img-{{vinyl.title}}">
+                {{#if @root.isAdmin}}
+                    <a href="/shop/{{vinyl._id}}/edit?allow=true">Редактировать</a>
+                {{/if}}
+            </div>
         </div>
-        <div class="col s6">
-            <div class="description">
-                <p>Формат: {{vinyl.format}}</p>
-                <p>Лейбл: {{vinyl.label}}</p>
-                <p>Жанр: {{vinyl.genre}}</p>
-                <p>Исполнитель: {{vinyl.musician}}</p>
-                <p>Дата релиза: {{vinyl.release_date}}</p>
-                <p>Описание: {{vinyl.description}}</p>
+        <div>
+            <div class="vinyl-instance__description">
+                <p><strong>Формат: </strong>{{vinyl.format}}</p>
+                <p><strong>Лейбл: </strong>{{vinyl.label}}</p>
+                <p><strong>Жанр: </strong>{{vinyl.genre}}</p>
+                <p><strong>Исполнитель: </strong>{{vinyl.musician}}</p>
+                <p><strong>Дата релиза: </strong>{{vinyl.release_date}}</p>
+                <p><strong>Доп описание: </strong>{{vinyl.description}}</p>
 
                 {{#if @root.isAuth}}
                     <form action="/cart/add" method="POST">
