@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  main:
+    container_name: vinylshop
+    build:
+      context: .
+    env_file:
+      - .development.env
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    environment:
+      - "SASS_BINARY_PATH=/app/node_modules/node-sass/vendor/linux_musl-x64-93/binding.node"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    restart: always
+  mongo:
+    container_name: my-mongo
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: my-database
+    volumes:
+      - ./data:/data/db
+    restart: always

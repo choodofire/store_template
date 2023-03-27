@@ -70,3 +70,9 @@ const setActive = (el, active) => {
         }
     }
 )
+
+// function sendInitMessageTelegramBot() {
+//     const data = 'Hello';
+//     const url = "https://t.me/VinylShopSlavikPixel_bot?start=" + encodeURIComponent(data);
+//     window.open(url);
+// }

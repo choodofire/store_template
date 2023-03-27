@@ -11,4 +11,12 @@
         With fast shipping and easy returns, you can shop with confidence knowing that we're committed to your satisfaction. <br>
         So come explore our collection of vinyl records and discover the magic of analog music today!
     </p>
+    <button onclick=sendInitMessageTelegramBot()>Send Message</button>
+    <script>
+        function sendInitMessageTelegramBot() {
+            var data = "Hello, world!"; // replace with your data
+            var url = "https://t.me/VinylShopSlavikPixel_bot?start=" + encodeURIComponent(data);
+            window.open(url);
+        }
+    </script>
 </div>

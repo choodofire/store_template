@@ -24,6 +24,11 @@ const orderSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    // Status: Оформлен, Оплачен, Отправлен, Получен.
+    status: {
+        type: String,
+        default: "Оформлен"
     }
 })
 

@@ -24,14 +24,15 @@ import hbsHelper from './utils/hbs-helper.js'
 import errorHandler from './middleware/error404.js'
 import sassMiddleware from "node-sass-middleware"
 import dotenv from 'dotenv'
+import { initBotTelegram } from "./payment/telegramBot.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 if (process.env.NODE_ENV === 'development') {
-    dotenv.config({ path: '.env.development' });
+    dotenv.config({ path: '.development.env' });
 } else {
-    dotenv.config({ path: '.env.production' });
+    dotenv.config({ path: '.production.env' });
 }
 
 const MongoStore = mongoStore(session)
@@ -86,7 +87,11 @@ app.use(varMiddleware)
 app.use(userMiddleware)
 
 app.use(flash())
-app.use(helmet())
+// app.use(helmet.contentSecurityPolicy({
+//     directives: {
+//         "script-src": ["'self'", "https://t.me/"]
+//     }
+// }))
 app.use(compression())
 
 app.use('/', homeRoutes)
@@ -106,6 +111,7 @@ async function start() {
             useNewUrlParser: true,
             // useFindAndModify: false,
         })
+        initBotTelegram();
         await app.listen(process.env.PORT, () => {
             console.log(`Server is running on MODE: ${process.env.NODE_ENV}`)
             console.log(`Server is running on PORT: ${process.env.PORT}`)
