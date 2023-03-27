@@ -87,11 +87,7 @@ app.use(varMiddleware)
 app.use(userMiddleware)
 
 app.use(flash())
-// app.use(helmet.contentSecurityPolicy({
-//     directives: {
-//         "script-src": ["'self'", "https://t.me/"]
-//     }
-// }))
+app.use(helmet())
 app.use(compression())
 
 app.use('/', homeRoutes)

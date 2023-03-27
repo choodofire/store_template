@@ -6,9 +6,7 @@ document.querySelectorAll('.date').forEach(node => {
 })
 
 document.querySelectorAll('.price').forEach(node => {
-    console.log(node.textContent)
     node.textContent = toCurrency(node.textContent)
-    console.log(node.textContent)
 })
 
 const $cart = document.querySelector('#cart')
@@ -70,9 +68,3 @@ const setActive = (el, active) => {
         }
     }
 )
-
-// function sendInitMessageTelegramBot() {
-//     const data = 'Hello';
-//     const url = "https://t.me/VinylShopSlavikPixel_bot?start=" + encodeURIComponent(data);
-//     window.open(url);
-// }
