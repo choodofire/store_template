@@ -1,61 +1,66 @@
 <div class="add-edit">
-    <h1>Добавить</h1>
+    <h1>Редактировать {{article.title}}</h1>
     {{#if error}}
         <p class="alert">{{error}}</p>
     {{/if}}
 
-    <form action="/add" method="post" enctype="multipart/form-data">
+    <form action="/shop/edit" method="post" enctype="multipart/form-data">
         <div class="add-edit__rows">
             <div>
-                <div class="input-field">
+                <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
                         <label for="title" class="input-field__label">Название</label>
-                        <input id="title" name="title" type="text" class="validate input-field__input" required value="{{data.title}}">
+                        <input id="title" name="title" type="text" class="validate input-field__input" required value="{{article.title}}">
                         <span class="helper-text" data-error="Введите название"></span>
                     </div>
                 </div>
 
-                <div class="input-field">
+                <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
                         <label for="price" class="input-field__label">Цена</label>
-                        <input id="price" name="price" type="number" class="validate input-field__input" required min="1" value="{{data.price}}">
+                        <input id="price" name="price" type="number" class="validate input-field__input" required min="1" value="{{article.price}}">
                         <span class="helper-text" data-error="Введите цену"></span>
                     </div>
                 </div>
 
                 <div class="file-field input-field">
                     <div class="btn">
-                        <span>Фото</span>
+                        <span>Обложка</span>
                         <input type="file" name="article">
                     </div>
                 </div>
             </div>
 
             <div>
-                <div class="input-field">
+                <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
                         <label for="quantity" class="input-field__label">Количество в наличии</label>
-                        <input id="quantity" name="quantity" type="text" class="validate input-field__input" required value="{{data.quantity}}">
+                        <input id="quantity" name="quantity" type="text" class="validate input-field__input" required value="{{article.quantity}}">
                         <span class="helper-text" data-error="Введите количество"></span>
                     </div>
                 </div>
 
-                <div class="input-field">
+                <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
                         <label for="description" class="input-field__label">Введите доп описание</label>
-                        <textarea id="description" name="description" class="input-field__textarea">{{data.description}}</textarea>
+                        <textarea id="description" name="description" class="input-field__textarea">{{article.description}}</textarea>
                         <span class="helper-text" data-error="Введите доп описание"></span>
                     </div>
                 </div>
-
-                <input type="hidden" name="email" value="{{user.email}}">
                 <input type="hidden" name="_csrf" value="{{csrf}}">
-                <button type="submit" class="btn btn-primary">Добавить предмет в магазин</button>
+                <input type="hidden" name="id" value="{{article._id}}">
+                <button type="submit" class="btn btn-primary">Редактировать</button>
             </div>
         </div>
     </form>
+
+    <form action="/shop/remove" method="post">
+
+        <input type="hidden" name="id" value="{{article._id}}">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+
+        <button class="btn red">Удалить</button>
+    </form>
 </div>
-
-
 
 

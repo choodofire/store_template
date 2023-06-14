@@ -4,8 +4,8 @@ const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         if (file.fieldname === 'avatar') {
             cb(null, 'images/avatars');
-        } else if (file.fieldname === 'vinyl') {
-            cb(null, 'images/vinyls');
+        } else if (file.fieldname === 'article') {
+            cb(null, 'images/articles');
         } else {
             cb(new Error('Invalid file type'));
         }
@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         if (file.fieldname === 'avatar') {
             cb(null, req.session.user.email + ".png")
-        } else if (file.fieldname === 'vinyl') {
+        } else if (file.fieldname === 'article') {
             cb(null, req.body.title + ".png")
         } else {
             cb(new Error('Invalid file type'));

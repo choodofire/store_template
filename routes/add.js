@@ -2,19 +2,19 @@ import {Router} from 'express'
 import authMiddleware from "../middleware/auth.js";
 import checkAPIs from "express-validator"
 import validators from "../utils/validators.js";
-import Vinyl from "../models/vinyl.js";
+import Article from "../models/article.js";
 import { handleImageUpload } from "../middleware/file.js";
 import path from "path";
 
 const router = Router()
 
 const {validationResult} = checkAPIs
-const vinylValidators = validators.vinylValidators
+const articleValidators = validators.articleValidators
 
 router.get('/', authMiddleware, (req, res) => {
     if (req.user.isAdmin) {
         res.status(200).render('add', {
-            title: 'Добавить виниловую пластинку',
+            title: 'Добавить предмет',
             isAdd: true,
         })
     } else {
@@ -26,7 +26,7 @@ router.post('/', authMiddleware, async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.status(422).render('add', {
-            title: 'Добавить виниловую пластинку',
+            title: 'Добавить предмет',
             isAdd: true,
             error: errors.array()[0].msg,
             data: {
@@ -35,15 +35,16 @@ router.post('/', authMiddleware, async (req, res) => {
         })
     }
 
-    if (req.files?.vinyl) {
-        req.body.img = path.join("images", "vinyls", req.files.vinyl[0].filename);
+
+    if (req.files?.article) {
+        req.body.img = path.join("images", "articles", req.files.article[0].filename);
     }
 
-    const newVinyl = Object.assign({...req.body}, {userId: req.user._id})
-    const vinyl = new Vinyl(Object.assign(newVinyl))
+    const newArticle = Object.assign({...req.body}, {userId: req.user._id})
+    const article = new Article(Object.assign(newArticle))
 
     try {
-        await vinyl.save()
+        await article.save()
         res.redirect('/shop')
     } catch (e) {
         res.status(500).send()

@@ -9,9 +9,9 @@
                 <p><strong>Дата: </strong><span class="date">{{date}}</span></p>
                 <p><strong>Покупатель: </strong><em>{{user.name}} – </em>({{user.userId.email}})</p>
                 <ol>
-                    {{#each vinyls}}
+                    {{#each articles}}
                         <li>
-                            {{vinyl.title}} (x <strong>{{count}}</strong>)
+                            {{article.title}} (x <strong>{{count}}</strong>)
                         </li>
                     {{/each}}
                 </ol>

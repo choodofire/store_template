@@ -1,9 +1,9 @@
 import {Schema, model} from 'mongoose'
 
 const orderSchema = new Schema({
-    vinyls: [
+    articles: [
         {
-            vinyl: {
+            article: {
                 type: Object,
                 required: true,
             },
@@ -31,5 +31,6 @@ const orderSchema = new Schema({
         default: "Оформлен"
     }
 })
+
 
 export default model('Order', orderSchema)

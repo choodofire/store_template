@@ -1,0 +1,29 @@
+<div class="vinyl-instance">
+    <h2>{{article.title}}</h2>
+    <div class="vinyl-instance__info">
+        <div>
+            <div class="vinyl-instance__image">
+                <img src="/{{article.img}}" alt="img-of-{{article.title}}">
+                {{#if @root.isAdmin}}
+                    <a href="/shop/{{article._id}}/edit?allow=true">Редактировать</a>
+                {{/if}}
+            </div>
+        </div>
+        <div>
+            <div class="vinyl-instance__description">
+                <p><strong>Количество в наличии </strong>{{article.quantity}}</p>
+                <p><strong>Доп описание: </strong>{{article.description}}</p>
+                {{#if @root.isAuth}}
+                    <form action="/cart/add" method="POST">
+                        <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                        <input type="hidden" name="id" value="{{article._id}}">
+                        <button type="submit" class="btn btn-primary">В корзину</button>
+                    </form>
+                {{/if}}
+                <p class="price big">{{article.price}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

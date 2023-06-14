@@ -4,10 +4,11 @@ import User from "../models/user.js";
 import checkAPIs from "express-validator"
 import validators from "../utils/validators.js";
 import Order from "../models/order.js";
-import Vinyl from "../models/vinyl.js";
+import Article from "../models/article.js";
+import article from "../models/article.js";
 
 const router = Router()
-const vinylValidators = validators.vinylValidators
+const articleValidators = validators.articleValidators
 const {validationResult} = checkAPIs
 
 function isOwner(record, req) {
@@ -16,15 +17,15 @@ function isOwner(record, req) {
 
 router.get('/', async (req, res) => {
     try {
-        const vinyls = await Vinyl.find()
+        const articles = await Article.find()
             .lean()
             .populate('userId', 'email name')
-        res.status(200).render('vinyls', {
-            title: 'Пластинки',
+        res.status(200).render('shop', {
+            title: 'Предметы',
             isShop: true,
             isAllProducts: true,
             userId: req.user ? req.user._id.toString() : null,
-            vinyls,
+            articles,
         })
     } catch (e) {
         res.status(500).send()
@@ -34,11 +35,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const vinyl = await Vinyl.findById(req.params.id).lean()
-        res.status(200).render('vinyl', {
+        const article = await Article.findById(req.params.id).lean()
+        res.status(200).render('article', {
             // layout: 'empty',
-            title: vinyl.title,
-            vinyl,
+            title: article.title,
+            article,
         })
 
     } catch (e) {
@@ -53,14 +54,14 @@ router.get('/:id/edit', authMiddleware, async (req, res) => {
     }
 
     try {
-        const vinyl = await Vinyl.findById(req.params.id).lean()
+        const article = await Article.findById(req.params.id).lean()
 
-        if (!isOwner(vinyl, req) && !req.user.isAdmin) {
+        if (!isOwner(article, req) && !req.user.isAdmin) {
             return res.redirect('/shop')
         }
-        res.status(200).render('vinyl-edit', {
-            title: `Редактировать ${vinyl.title}`,
-            vinyl,
+        res.status(200).render('article-edit', {
+            title: `Редактировать ${article.title}`,
+            article,
         })
     } catch (e) {
         res.status(500).send()
@@ -68,7 +69,7 @@ router.get('/:id/edit', authMiddleware, async (req, res) => {
     }
 })
 
-router.post('/edit', authMiddleware, vinylValidators, async (req, res) => {
+router.post('/edit', authMiddleware, articleValidators, async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.status(422).redirect(`/shop/${req.body.id}/edit?allow=true`)
@@ -76,12 +77,12 @@ router.post('/edit', authMiddleware, vinylValidators, async (req, res) => {
     try {
         const {id} = req.body
         delete req.body.id
-        const vinyl = await Vinyl.findById(id)
-        if (!isOwner(vinyl, req) && !req.user.isAdmin) {
+        const article = await Article.findById(id)
+        if (!isOwner(article, req) && !req.user.isAdmin) {
             return res.redirect('/shop')
         }
-        Object.assign(vinyl, req.body)
-        await vinyl.save()
+        Object.assign(article, req.body)
+        await article.save()
         res.redirect('/shop')
     } catch (e) {
         res.status(500).send()
@@ -92,7 +93,7 @@ router.post('/edit', authMiddleware, vinylValidators, async (req, res) => {
 router.post('/remove', authMiddleware, async (req, res) => {
     try {
         if (req.user.isAdmin) {
-            await Vinyl.deleteOne({
+            await Article.deleteOne({
                 _id: req.body.id,
             })
         }

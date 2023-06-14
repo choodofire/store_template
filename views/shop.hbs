@@ -1,6 +1,6 @@
 <div class="shop" id="shop">
-        {{#if vinyls.length}}
-                {{#each vinyls}}
+        {{#if articles.length}}
+                {{#each articles}}
                     <div class="shop__card-link">
                         <a href="/shop/{{_id}}">
                             <div>
@@ -18,6 +18,6 @@
                     </div>
                 {{/each}}
         {{else}}
-            <p>Пластинок нет</p>
+            <p>Магазин пуст</p>
         {{/if}}
 </div>

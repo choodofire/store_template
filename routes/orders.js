@@ -16,8 +16,8 @@ router.get('/', authMiddleware, async (req, res) => {
                 orders: orders.map(o => {
                     return {
                         ...o,
-                        price: o.vinyls.reduce((total, c) => {
-                            return total += c.count * c.vinyl.price
+                        price: o.articles.reduce((total, c) => {
+                            return total += c.count * c.article.price
                         }, 0)
                     }
                 })
@@ -32,10 +32,11 @@ router.get('/', authMiddleware, async (req, res) => {
 
 router.post('/', authMiddleware, async (req, res) => {
     try {
-        const user = await req.user.populate('cart.items.vinylId')
-        const vinyls = user.cart.items.map(i => ({
+        const user = await req.user.populate('cart.items.articleId')
+
+        const articles = user.cart.items.map(i => ({
             count: i.count,
-            vinyl: {...i.vinylId}
+            article: {...i.articleId}
         }))
 
         const order = new Order({
@@ -43,7 +44,7 @@ router.post('/', authMiddleware, async (req, res) => {
                 name: req.user.name,
                 userId: req.user,
             },
-            vinyls: vinyls,
+            articles: articles,
         })
 
         await order.save()

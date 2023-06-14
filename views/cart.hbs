@@ -1,7 +1,7 @@
 <div class="cart">
     <h1>Корзина</h1>
     <div id="cart" class="cart__info">
-        {{#if vinyls.length}}
+        {{#if articles.length}}
             <table>
                 <thead>
                 <tr>
@@ -11,7 +11,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{#each vinyls}}
+                {{#each articles}}
                     <tr>
                         <td>{{title}}</td>
                         <td>{{count}}</td>

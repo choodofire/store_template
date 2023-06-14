@@ -62,7 +62,7 @@ app.use(
 )
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/images/avatars', express.static(path.join(__dirname, 'images', 'avatars')))
-app.use('/images/vinyls', express.static(path.join(__dirname, 'images', 'vinyls')))
+app.use('/images/articles', express.static(path.join(__dirname, 'images', 'articles')))
 app.use('/images/homePage-photos', express.static(path.join(__dirname, 'images', 'homePage-photos')))
 app.use('/images/icons',express.static(path.join(__dirname, 'images', 'icons')))
 app.use(express.urlencoded({extended: true}))
@@ -74,7 +74,7 @@ app.use(session({
 }))
 app.use(fileMiddleware.fields([
     {
-        name: 'vinyl',
+        name: 'article',
         maxCount: 1
     },
     {
