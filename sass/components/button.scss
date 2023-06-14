@@ -10,25 +10,22 @@
   border-radius: 0;
   color: $white;
   font-size: 14px;
-}
-
-.btn:hover {
-  background-color: $buttonHover;
-  transition: all 0.8s ease 0s;
-  cursor: pointer;
-}
-
-.btn:focus {
-  transition: all 0.8s ease 0s;
-  background-color: $black;
+  &:hover {
+    background-color: $buttonHover;
+    transition: all 0.8s ease 0s;
+    cursor: pointer;
+  }
+  &:focus {
+    transition: all 0.8s ease 0s;
+    background-color: $black;
+  }
 }
 
 .red {
   background-color: $red;
-  color: $black
-}
-
-.red:hover {
-  background-color: $redHover;
-  color: $black
+  color: $black;
+  &:hover {
+    background-color: $redHover;
+    color: $black
+  }
 }

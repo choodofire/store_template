@@ -1,5 +1,4 @@
 @import "colors.scss";
-@import "partials/shop-navbar.scss";
 
 .shop {
   display: flex;
@@ -15,6 +14,10 @@
   &__card-link {
     background-color: $white;
     height: 100%;
+    &:hover {
+      background: $hover;
+      transition: 0.5s;
+    }
   }
 
   &__card {
@@ -29,8 +32,4 @@
     }
   }
 
-  &__card-link:hover {
-    background: $hover;
-    transition: 0.5s;
-  }
 }

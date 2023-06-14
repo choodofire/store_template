@@ -1,22 +1,28 @@
 <div class="info">
-    <h1>Information</h1>
-    <p>Welcome to our online store, where we celebrate the timeless artistry of vinyl records. <br>
-        Our carefully curated collection features a diverse range of genres, from classic rock and jazz to hip-hop and electronic. <br>
-        Each record is hand-selected by our team of passionate music enthusiasts, ensuring that every album is of the highest quality. <br>
-        <br>
-        Whether you're a seasoned collector or new to the vinyl scene, our store offers a wealth of options to suit your taste. <br>
-        Browse our selection of rare and hard-to-find records, or discover new artists with our constantly updated inventory. <br>
-        <br>
-        At our online store, we're dedicated to providing our customers with exceptional service and a seamless shopping experience. <br>
-        With fast shipping and easy returns, you can shop with confidence knowing that we're committed to your satisfaction. <br>
-        So come explore our collection of vinyl records and discover the magic of analog music today!
+    <h1>Информация</h1>
+    <p>Этот проект представляет собой веб-приложение магазина, разработанное с использованием Node.js, Express.js, Handlebars и MongoDB. <br>
+        Приложение обеспечивает функциональность для администратора и покупателя. <br>
     </p>
-    <button onclick=sendInitMessageTelegramBot()>Send Message</button>
-    <script>
-        function sendInitMessageTelegramBot() {
-            var data = "Hello, world!"; // replace with your data
-            var url = "https://t.me/VinylShopSlavikPixel_bot?start=" + encodeURIComponent(data);
-            window.open(url);
-        }
-    </script>
+    <br>
+    <div>
+        <p>Основные функции администратора:</p>
+        <ul>
+            <li>вход в систему: Администратор может войти в систему, используя свои учетные данные;</li>
+            <li>управление товарами: Администратор может добавлять, удалять и редактировать товары в магазине;</li>
+            <li>управление пользователями: Администратор может просматривать информацию о пользователях, включая заказы, и выполнять необходимые действия при необходимости.</li>
+            <li>уведомления заказов: После успешного оформления заказа администратор получает уведомление о новом заказе;</li>
+        </ul>
+    </div>
+    <br>
+    <div>
+        <p>Основные функции пользователя:</p>
+        <ol>
+            <li>регистрация и вход в систему: Покупатели могут зарегистрироваться, создавая учетные записи, и входить в систему с использованием своих учетных данных;</li>
+            <li>просмотр товаров: Покупатели могут просматривать список доступных товаров с информацией о каждом товаре, включая название, описание и цену;</li>
+            <li>корзина: Покупатели могут добавлять выбранные товары в корзину, просматривать содержимое корзины и удалять товары при необходимости;</li>
+            <li>оформление заказа: Покупатели могут оформить заказ, указав необходимую информацию, такую как адрес доставки и контактные данные;</li>
+            <li>оплата заказа через телеграм-бота: После оформления заказа покупателю предоставляется возможность оплатить его с помощью телеграм-бота;</li>
+            <li>уведомления заказов: После успешного оформления заказа пользователь получает уведомление о разных статусах заказов;</li>
+        </ol>
+    </div>
 </div>

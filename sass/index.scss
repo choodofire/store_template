@@ -7,7 +7,7 @@
 @import "orders.scss";
 @import "cart.scss";
 @import "add-edit.scss";
-@import "partials/info.scss";
+@import "info";
 @import "partials/footer.scss";
 @import "partials/navbar.scss";
 @import "components/button.scss";
@@ -50,5 +50,5 @@ html, body{
   text-align: center;
   margin-bottom: 1rem;
   background: rgba(255, 0, 0, .3);
-  color: red;
+  color: $red;
 }

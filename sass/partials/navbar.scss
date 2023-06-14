@@ -11,9 +11,10 @@
     color: $white;
     letter-spacing: 1px;
     padding-bottom: 5px;
-  }
-  a::before {
-    background-color: $white;
+    &:before {
+      background-color: $white;
+
+    }
   }
 
   &__nav {

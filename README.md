@@ -1,6 +1,9 @@
 ## Installation
 
 ```bash
+# set correct Node
+$ nvm use $(cat nodeV)
+
 $ npm install
 ```
 

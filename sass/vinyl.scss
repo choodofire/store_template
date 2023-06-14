@@ -27,10 +27,10 @@
       padding: 20px;
       margin: 10px;
       border: 2px solid $black;
-    }
-    > a:hover {
-      background-color: $hover;
-      transition: 0.5s;
+      &:hover {
+        background-color: $hover;
+        transition: 0.5s;
+      }
     }
   }
   &__description {

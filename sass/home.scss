@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: $white;
   }
 
   .sidebar h1 {
@@ -44,20 +44,18 @@
   }
 
   button {
-    background-color: #fff;
+    background-color: $white;
     border: none;
-    color: #aaa;
+    color: $hover;
     cursor: pointer;
     font-size: 16px;
     padding: 15px;
-  }
-
-  button:hover {
-    color: #222;
-  }
-
-  button:focus {
-    outline: none;
+    &:hover {
+      color: $buttonHover;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 
   .container .controls button {
@@ -78,5 +76,4 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
-
 }
