@@ -14,7 +14,7 @@ const articleValidators = validators.articleValidators
 router.get('/', authMiddleware, (req, res) => {
     if (req.user.isAdmin) {
         res.status(200).render('add', {
-            title: 'Добавить предмет',
+            title: 'Add item',
             isAdd: true,
         })
     } else {
@@ -26,7 +26,7 @@ router.post('/', authMiddleware, async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.status(422).render('add', {
-            title: 'Добавить предмет',
+            title: 'Add item',
             isAdd: true,
             error: errors.array()[0].msg,
             data: {

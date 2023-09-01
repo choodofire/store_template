@@ -2,7 +2,7 @@ version: '3'
 
 services:
   main:
-    container_name: vinylshop
+    container_name: store_example
     build:
       context: .
     env_file:

@@ -30,7 +30,7 @@ router.get('/', authMiddleware, async (req, res) => {
     const articles = mapCartItems(user.cart)
 
     res.render('cart', {
-        title: 'Корзина',
+        title: 'Cart',
         isCart: true,
         articles: articles,
         price: computePrice(articles),

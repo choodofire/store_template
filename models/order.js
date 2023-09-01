@@ -25,7 +25,8 @@ const orderSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    // Status: Оформлен, Оплачен, Отправлен, Получен.
+    // TODO
+    // Status: Completed, Paid, Sent, Received.
     status: {
         type: String,
         default: "Оформлен"

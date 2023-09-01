@@ -1,13 +1,13 @@
 <div class="orders orders__all">
-    <h1>Все заказы пользователей</h1>
+    <h1>All orders from users</h1>
 
     {{#if orders.length}}
         {{#each orders}}
             <div class="orders__one">
                 <hr>
-                <p><strong>Заказ № </strong><small>{{_id}}</small></p>
-                <p><strong>Дата: </strong><span class="date">{{date}}</span></p>
-                <p><strong>Покупатель: </strong><em>{{user.name}} – </em>({{user.userId.email}})</p>
+                <p><strong>Order № </strong><small>{{_id}}</small></p>
+                <p><strong>Date: </strong><span class="date">{{date}}</span></p>
+                <p><strong>Buyer: </strong><em>{{user.name}} – </em>({{user.userId.email}})</p>
                 <ol>
                     {{#each articles}}
                         <li>
@@ -15,11 +15,11 @@
                         </li>
                     {{/each}}
                 </ol>
-                <p><strong>Цена: </strong><span class="price">{{price}}</span></p>
+                <p><strong>Price: </strong><span class="price">{{price}}</span></p>
             </div>
         {{/each}}
     {{else}}
-        <p>Заказов нет</p>
+        <p>No orders.</p>
     {{/if}}
 </div>
 

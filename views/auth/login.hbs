@@ -5,25 +5,25 @@
                 <p class="alert">{{loginError}}</p>
             {{/if}}
 
-            <h1>Войти в магазин</h1>
+            <h1>Log in to the shop</h1>
             <form action="/auth/login" method="post">
                 <div class="input-field">
                     <div class="input-field__control">
                         <label for="email" class="input-field__label">Email</label>
                         <input id="email" name="email" type="email" class="validate input-field__input" required>
-                        <span class="helper-text" data-error="Введите email"></span>
+                        <span class="helper-text" data-error="Enter email"></span>
                     </div>
                 </div>
                 <div class="input-field">
                     <div class="input-field__control">
-                        <label for="password" class="input-field__label">Пароль</label>
+                        <label for="password" class="input-field__label">Password</label>
                         <input id="password" name="password" type="password" class="validate input-field__input" required>
-                        <span class="helper-text" data-error="Введите пароль"></span>
+                        <span class="helper-text" data-error="Enter password"></span>
                     </div>
                 </div>
                 <input type="hidden" name="_csrf" value="{{csrf}}">
-                <p><a href="/auth/reset">Забыли пароль?</a></p>
-                <button class="btn btn-primary" type="submit">Войти</button>
+                <p><a href="/auth/reset">Forgot your password?</a></p>
+                <button class="btn btn-primary" type="submit">Sign in</button>
 
             </form>
         </div>
@@ -39,32 +39,32 @@
                     <div class="input-field__control">
                         <label for="reemail" class="input-field__label">Email</label>
                         <input id="reemail" name="email" type="email" class="validate input-field__input" required>
-                        <span class="helper-text" data-error="Введите email"></span>
+                        <span class="helper-text" data-error="Enter email"></span>
                     </div>
                 </div>
                 <div class="input-field">
                     <div class="input-field__control">
-                        <label for="rpassword" class="input-field__label">Пароль</label>
+                        <label for="rpassword" class="input-field__label">Password</label>
                         <input id="rpassword" name="password" type="password" class="validate input-field__input" required>
-                        <span class="helper-text" data-error="Введите пароль"></span>
+                        <span class="helper-text" data-error="Enter password"></span>
                     </div>
                 </div>
                 <div class="input-field">
                     <div class="input-field__control">
-                        <label for="confirm" class="input-field__label">Пароль еще раз</label>
+                        <label for="confirm" class="input-field__label">Password again.</label>
                         <input id="confirm" name="confirm" type="password" class="validate input-field__input" required>
-                        <span class="helper-text" data-error="Введите пароль еще раз"></span>
+                        <span class="helper-text" data-error="Enter password again."></span>
                     </div>
                 </div>
                 <div class="input-field">
                     <div class="input-field__control">
-                        <label for="name" class="input-field__label">Ваше имя</label>
+                        <label for="name" class="input-field__label">Your name</label>
                         <input id="name" name="name" type="text" class="validate input-field__input" required>
-                        <span class="helper-text" data-error="Введите имя"></span>
+                        <span class="helper-text" data-error="Enter a name"></span>
                     </div>
                 </div>
                 <input type="hidden" name="_csrf" value="{{csrf}}">
-                <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+                <button class="btn btn-primary" type="submit">Sign up</button>
 
             </form>
         </div>

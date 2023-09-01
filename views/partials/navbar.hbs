@@ -6,21 +6,21 @@
                     <div class="header__left link-underlined">
                         <ul>
                             {{#if isHome}}
-                                <li class="active"><a href="/">ГЛАВНАЯ</a></li>
+                                <li class="active"><a href="/">HOME</a></li>
                             {{else}}
-                                <li><a href="/">ГЛАВНАЯ</a></li>
+                                <li><a href="/">HOME</a></li>
                             {{/if}}
 
                             {{#if isShop}}
-                                <li class="active"><a href="/shop">МАГАЗИН</a></li>
+                                <li class="active"><a href="/shop">SHOP</a></li>
                             {{else}}
-                                <li><a href="/shop">МАГАЗИН</a></li>
+                                <li><a href="/shop">SHOP</a></li>
                             {{/if}}
 
                             {{#if isInfo}}
-                                <li class="active"><a href="/info">ИНФО</a></li>
+                                <li class="active"><a href="/info">INFO</a></li>
                             {{else}}
-                                <li><a href="/info">ИНФО</a></li>
+                                <li><a href="/info">INFO</a></li>
                             {{/if}}
                         </ul>
                     </div>
@@ -28,39 +28,39 @@
                         <ul>
                             {{#if @root.isAdmin}}
                                 {{#if isAdd}}
-                                    <li class="active"><a href="/add">ДОБАВИТЬ ПЛАСТИНКУ</a></li>
+                                    <li class="active"><a href="/add">ADD ITEM</a></li>
                                 {{else}}
-                                    <li><a href="/add">ДОБАВИТЬ ПЛАСТИНКУ</a></li>
+                                    <li><a href="/add">ADD ITEM</a></li>
                                 {{/if}}
                             {{/if}}
                             {{#if @root.isAdmin}}
                                 {{#if isOrders}}
-                                    <li class="active"><a href="/orders">ВСЕ ЗАКАЗЫ</a></li>
+                                    <li class="active"><a href="/orders">ALL ORDERS</a></li>
                                 {{else}}
-                                    <li><a href="/orders">ВСЕ ЗАКАЗЫ</a></li>
+                                    <li><a href="/orders">ALL ORDERS</a></li>
                                 {{/if}}
                             {{/if}}
 
                             {{#if isAuth}}
 
                                 {{#if isProfile}}
-                                    <li class="active"><a href="/profile">ПРОФИЛЬ</a></li>
+                                    <li class="active"><a href="/profile">PROFILE</a></li>
                                 {{else}}
-                                    <li><a href="/profile">ПРОФИЛЬ</a></li>
+                                    <li><a href="/profile">PROFILE</a></li>
                                 {{/if}}
 
                                 {{#if isCart}}
-                                    <li class="active"><a href="/cart">КОРЗИНА</a></li>
+                                    <li class="active"><a href="/cart">CART</a></li>
                                 {{else}}
-                                    <li><a href="/cart">КОРЗИНА</a></li>
+                                    <li><a href="/cart">CART</a></li>
                                 {{/if}}
 
-                                <li><a href="/auth/logout">ВЫЙТИ</a></li>
+                                <li><a href="/auth/logout">SIGN OUT</a></li>
                             {{else}}
                                 {{#if isLogin}}
-                                    <li class="active popup-link"><a href="/auth/login">ВОЙТИ / РЕГИСТРАЦИЯ</a></li>
+                                    <li class="active popup-link"><a href="/auth/login">SIGN IN / REGISTRATION</a></li>
                                 {{else}}
-                                    <li><a href="/auth/login">ВОЙТИ / РЕГИСТРАЦИЯ</a></li>
+                                    <li><a href="/auth/login">SIGN IN / REGISTRATION</a></li>
                                 {{/if}}
                             {{/if}}
                         </ul>

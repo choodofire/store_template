@@ -13,7 +13,7 @@ router.get('/', authMiddleware, async (req, res) => {
         .populate('user.userId')
 
     res.render('profile', {
-        title: 'Профиль',
+        title: 'Profile',
         isProfile: true,
         user: req.user.toObject(),
         orders: orders.map(o => {

@@ -1,13 +1,13 @@
 <div class="cart">
-    <h1>Корзина</h1>
+    <h1>Cart</h1>
     <div id="cart" class="cart__info">
         {{#if articles.length}}
             <table>
                 <thead>
                 <tr>
-                    <th>Название</th>
-                    <th>Кол-во</th>
-                    <th>Действия</th>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -16,7 +16,7 @@
                         <td>{{title}}</td>
                         <td>{{count}}</td>
                         <td>
-                            <button class="btn js-remove" data-id="{{_id}}" data-csrf="{{@root.csrf}}">Удалить</button>
+                            <button class="btn js-remove" data-id="{{_id}}" data-csrf="{{@root.csrf}}">Remove</button>
                         </td>
                     </tr>
                 {{/each}}
@@ -24,15 +24,15 @@
             </table>
 
             <div class="cart__info__footer">
-                <p><strong>Цена: </strong><span class="price">{{price}}</span></p>
+                <p><strong>Price: </strong><span class="price">{{price}}</span></p>
                 <form action="/orders" method="post">
                     <input type="hidden" name="_csrf" value="{{csrf}}">
-                    <button type="submit" class="btn">Сделать заказ</button>
+                    <button type="submit" class="btn">Make order</button>
                 </form>
             </div>
 
         {{else}}
-            <p>Корзина пуста</p>
+            <p>Cart is empty</p>
         {{/if}}
     </div>
 </div>

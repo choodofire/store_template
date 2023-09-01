@@ -5,19 +5,19 @@
             <div class="vinyl-instance__image">
                 <img src="/{{article.img}}" alt="img-of-{{article.title}}">
                 {{#if @root.isAdmin}}
-                    <a href="/shop/{{article._id}}/edit?allow=true">Редактировать</a>
+                    <a href="/shop/{{article._id}}/edit?allow=true">Edit</a>
                 {{/if}}
             </div>
         </div>
         <div>
             <div class="vinyl-instance__description">
-                <p><strong>Количество в наличии </strong>{{article.quantity}}</p>
-                <p><strong>Доп описание: </strong>{{article.description}}</p>
+                <p><strong>Quantity available: </strong>{{article.quantity}}</p>
+                <p><strong>Additional description: </strong>{{article.description}}</p>
                 {{#if @root.isAuth}}
                     <form action="/cart/add" method="POST">
                         <input type="hidden" name="_csrf" value="{{@root.csrf}}">
                         <input type="hidden" name="id" value="{{article._id}}">
-                        <button type="submit" class="btn btn-primary">В корзину</button>
+                        <button type="submit" class="btn btn-primary">In cart</button>
                     </form>
                 {{/if}}
                 <p class="price big">{{article.price}}</p>

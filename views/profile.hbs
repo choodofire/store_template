@@ -1,5 +1,5 @@
 <div class="profile">
-    <h1>Профиль</h1>
+    <h1>Profile</h1>
     <div class="profile__info">
 
         <div class="profile__data">
@@ -14,7 +14,7 @@
                             <div class="profile__avatar-border">
                                 <img src="../images/icons/default-avatar.png" alt="No Avatar">
                             </div>
-                            <p>Аватар не установлен</p>
+                            <p>Avatar is not set</p>
                         </div>
                     {{/if}}
                 </div>
@@ -33,7 +33,7 @@
                         <div>
                             <div class="input-field input-field--is-filled">
                                 <div class="input-field__control">
-                                    <label for="name" class="input-field__label">Имя</label>
+                                    <label for="name" class="input-field__label">Name</label>
                                     <input id="name" name="name" type="text" class="validate input-field__input"  required value="{{user.name}}">
                                     <span class="helper-text" data-error="Имя не может быть пустым"></span>
                                 </div>
@@ -41,7 +41,7 @@
 
                             <div class="input-field">
                                 <div class="btn">
-                                    <span>Аватар</span>
+                                    <span>Avatar</span>
                                     <input type="file" name="avatar">
                                 </div>
                             </div>
@@ -50,19 +50,19 @@
                         <div>
                             <div class="input-field input-field--is-filled">
                                 <div class="input-field__control">
-                                    <label for="country" class="input-field__label">Страна/Регион</label>
+                                    <label for="country" class="input-field__label">Country/Region</label>
                                     <input id="country" name="country" type="text" class="validate input-field__input" value="{{user.address.country}}">
                                 </div>
                             </div>
                             <div class="input-field input-field--is-filled">
                                 <div class="input-field__control">
-                                    <label for="fullAddress" class="input-field__label">Введите полный адрес</label>
+                                    <label for="fullAddress" class="input-field__label">Enter the full address</label>
                                     <input id="fullAddress" name="fullAddress" type="text" class="validate input-field__input" value="{{user.address.fullAddress}}">
                                 </div>
                             </div>
                             <input type="hidden" name="email" value="{{user.email}}">
                             <input type="hidden" name="_csrf" value="{{csrf}}">
-                            <button type="submit" class="btn">Сохранить</button>
+                            <button type="submit" class="btn">Save</button>
                         </div>
                     </div>
                 </form>
@@ -70,14 +70,14 @@
         </div>
 
         <div class="orders">
-            <h1>Заказы</h1>
+            <h1>Orders</h1>
             {{#if orders.length}}
                 {{#each orders}}
                     <div class="orders__one">
                         <hr>
-                        <p><strong>Заказ № </strong><small>{{_id}}</small></p>
-                        <p><strong>Дата: </strong><span class="date">{{date}}</span></p>
-                        <p><strong>Покупатель: </strong><em>{{user.name}} – </em>({{user.userId.email}})</p>
+                        <p><strong>Order № </strong><small>{{_id}}</small></p>
+                        <p><strong>Date: </strong><span class="date">{{date}}</span></p>
+                        <p><strong>Buyer: </strong><em>{{user.name}} – </em>({{user.userId.email}})</p>
                         <ol>
                             {{#each vinyls}}
                                 <li>
@@ -85,11 +85,11 @@
                                 </li>
                             {{/each}}
                         </ol>
-                        <p><strong>Цена: </strong><span class="price">{{price}}</span></p>
+                        <p><strong>Price: </strong><span class="price">{{price}}</span></p>
                     </div>
                 {{/each}}
             {{else}}
-                <p>Заказов еще нет</p>
+                <p>No orders yet</p>
             {{/if}}
         </div>
 

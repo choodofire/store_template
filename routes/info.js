@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/', async(req, res) => {
     res.status(200).render('info', {
-        title: 'Информация',
+        title: 'Info',
         isInfo: true,
     })
 })

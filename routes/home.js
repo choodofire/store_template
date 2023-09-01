@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/', (req, res) => {
     res.status(200).render('index', {
-        title: 'Главная страница',
+        title: 'Home page',
         isHome: true,
         isMain: true,
     })

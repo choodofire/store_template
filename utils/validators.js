@@ -6,32 +6,32 @@ const {body, validationResult} = checkAPIs
 const registerValidators = [
     body('email')
         .isEmail()
-        .withMessage('Введите корректный email')
+        .withMessage('Enter valid email address')
         .custom(async (value, {req}) => {
             try {
                 const user = await User.findOne({email: value})
                 if (user) {
-                    return Promise.reject('Такой email уже занят')
+                    return Promise.reject('This email address is already taken')
                 }
             } catch (e) {
                 console.log(e)
             }
         }).normalizeEmail(),
-    body('password', 'Пароль должен быть минимум 6 символов')
+    body('password', 'Password must be a minimum of 6 characters')
         .isLength({min: 6, max: 56})
         .isAlphanumeric()
         .trim(),
     body('confirm')
         .custom((value, {req}) => {
             if (value !== req.body.password) {
-                throw new Error('Пароли должны совпадать')
+                throw new Error('Passwords must match')
             }
             return true
         })
         .trim(),
     body('name')
         .isLength({min: 2, max: 25})
-        .withMessage('Имя должно быть минимум 2 символа')
+        .withMessage('Name must be a minimum of 2 characters')
         .trim()
 ]
 

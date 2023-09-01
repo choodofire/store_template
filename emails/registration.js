@@ -1,15 +1,15 @@
 const registrationObj = function (email) {
     return {
         api_key: process.env.MAIL_API_KEY,
-        email: email, // Адрес получателя сообщения
-        sender_name: 'SmallShop', // Имя отправителя
-        sender_email: process.env.EMAIL_FROM, // Email отправителя
-        subject: 'Аккаунт создан', // Тема письма
-        body: `<h1>Добро пожаловать в наш магазин</h1>
-             <p>Вы успешно создали аккаунт c email - ${email}</p>
+        email: email, // Address of the receiver of the message
+        sender_name: 'store_choodofire', // Sender's name
+        sender_email: process.env.EMAIL_FROM, // Sender's Email
+        subject: 'Account created', // Post subject line
+        body: `<h1>Welcome to our shop</h1>
+             <p>You have successfully created an account with email - ${email}</p>
              <hr />
-             <a href="${process.env.BASE_URL}">Купить всякое разное</a>`, // Текст в формате html
-        list_id: 1, // Код списка
+             <a href="${process.env.BASE_URL}">Start shopping</a>`,
+        list_id: 1, // List code
     }
 }
 

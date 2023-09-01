@@ -1,5 +1,5 @@
 <div class="add-edit">
-    <h1>Редактировать {{article.title}}</h1>
+    <h1>Edit {{article.title}}</h1>
     {{#if error}}
         <p class="alert">{{error}}</p>
     {{/if}}
@@ -9,23 +9,23 @@
             <div>
                 <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
-                        <label for="title" class="input-field__label">Название</label>
+                        <label for="title" class="input-field__label">Title</label>
                         <input id="title" name="title" type="text" class="validate input-field__input" required value="{{article.title}}">
-                        <span class="helper-text" data-error="Введите название"></span>
+                        <span class="helper-text" data-error="Enter title"></span>
                     </div>
                 </div>
 
                 <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
-                        <label for="price" class="input-field__label">Цена</label>
+                        <label for="price" class="input-field__label">Price</label>
                         <input id="price" name="price" type="number" class="validate input-field__input" required min="1" value="{{article.price}}">
-                        <span class="helper-text" data-error="Введите цену"></span>
+                        <span class="helper-text" data-error="Enter price"></span>
                     </div>
                 </div>
 
                 <div class="file-field input-field">
                     <div class="btn">
-                        <span>Обложка</span>
+                        <span>Photo</span>
                         <input type="file" name="article">
                     </div>
                 </div>
@@ -34,22 +34,22 @@
             <div>
                 <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
-                        <label for="quantity" class="input-field__label">Количество в наличии</label>
+                        <label for="quantity" class="input-field__label">Quantity available</label>
                         <input id="quantity" name="quantity" type="text" class="validate input-field__input" required value="{{article.quantity}}">
-                        <span class="helper-text" data-error="Введите количество"></span>
+                        <span class="helper-text" data-error="Enter quantity"></span>
                     </div>
                 </div>
 
                 <div class="input-field input-field--is-filled">
                     <div class="input-field__control">
-                        <label for="description" class="input-field__label">Введите доп описание</label>
+                        <label for="description" class="input-field__label">Additional description</label>
                         <textarea id="description" name="description" class="input-field__textarea">{{article.description}}</textarea>
-                        <span class="helper-text" data-error="Введите доп описание"></span>
+                        <span class="helper-text" data-error="Enter additional description"></span>
                     </div>
                 </div>
                 <input type="hidden" name="_csrf" value="{{csrf}}">
                 <input type="hidden" name="id" value="{{article._id}}">
-                <button type="submit" class="btn btn-primary">Редактировать</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </div>
         </div>
     </form>

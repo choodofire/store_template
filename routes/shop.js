@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
             .lean()
             .populate('userId', 'email name')
         res.status(200).render('shop', {
-            title: 'Предметы',
+            title: 'Items',
             isShop: true,
             isAllProducts: true,
             userId: req.user ? req.user._id.toString() : null,
@@ -60,7 +60,7 @@ router.get('/:id/edit', authMiddleware, async (req, res) => {
             return res.redirect('/shop')
         }
         res.status(200).render('article-edit', {
-            title: `Редактировать ${article.title}`,
+            title: `Edit ${article.title}`,
             article,
         })
     } catch (e) {

@@ -11,7 +11,7 @@ router.get('/', authMiddleware, async (req, res) => {
                 .lean()
                 .populate('user.userId')
             res.render('orders', {
-                title: 'Все заказы',
+                title: 'All orders',
                 isOrders: true,
                 orders: orders.map(o => {
                     return {

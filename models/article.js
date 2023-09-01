@@ -2,28 +2,24 @@ import {Schema, model} from 'mongoose'
 
 const articleSchema = new Schema({
     title: {
-        // Название
         type: String,
         required: true,
     },
     price: {
-        // Цена
         type: Number,
         required: true,
     },
     img: {
-        // Ссылка на фото
+        // Link to photo
         type: String,
         required: true,
     },
     quantity: {
-        // Количество
         type: Number,
         required: true,
         default: 1,
     },
     description: {
-        // Доп описание
         type: String,
     },
     userId: {
